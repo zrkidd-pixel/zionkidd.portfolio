@@ -310,3 +310,11 @@ This file tracks all decisions, user inputs, and AI responses throughout the AI-
 **Context**: OPERATIONS phase, UI/UX Refinements stage, copy fix — implemented and verified.
 
 ---
+
+## Hero Copy — Iterated to a Welcome Message
+**Timestamp**: 2026-09-08T11:25:00Z
+**User Input**: Multi-round text-only iteration (no code, per explicit request to iterate before approving): (1) "I don't want any em dashes." (2) "I don't like you using the word properly, don't include it." (3) "It should be more of a Welcome message. Think about my user stories and who my audience is." (4) Picked option B, then specified: keep "Welcome, glad you're here", keep "Below" but drop the specific count (since it can change), replace the rest with "These are projects that I've built and shipped from end to end. Keep scrolling to see my actual thinking behind each of them." (5) Approved the assembled final version. (6) "Yes" / "Approved" to implement.
+**AI Response**: Iterated purely in chat across 4 rounds with no code changes until final approval, per the user's explicit request. Referenced `aidlc-docs/inception/user-stories/personas.md` (Recruiter/Hiring Manager persona: 30-60s skim, wants "real shipped products, real thinking," frustrated by "buzzwords") to ground the welcome-message pitch. Final copy: "Welcome, glad you're here. Below are projects I've built and shipped from end to end. Keep scrolling to see my actual thinking behind each of them." Updated `site.ts` `siteIntro` field. Re-ran lint/test/build — all green.
+**Context**: OPERATIONS phase, UI/UX Refinements stage, hero copy — final version implemented and verified.
+
+---

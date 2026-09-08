@@ -12,7 +12,7 @@ export const site = {
   // States what this site IS (hero copy) — distinct from `bio`, which is
   // the About section's personal blurb, so the two don't repeat each other.
   siteIntro:
-    'This site is where I show my work properly — two shipped products below, each with the real problem, the tradeoffs, and the thinking behind it.',
+    "Welcome, glad you're here. Below are projects I've built and shipped from end to end. Keep scrolling to see my actual thinking behind each of them.",
   // TODO: revisit after MVP — the About section's personal bio
   bio: 'Short bio coming soon. In the meantime: two shipped products are below, with the real thinking behind each one.',
   // TODO: revisit after MVP
