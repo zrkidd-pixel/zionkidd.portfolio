@@ -5,7 +5,7 @@ import { ThemeToggle } from '../ThemeToggle'
 import '../../styles/layout.css'
 
 const NAV_ITEMS = [
-  { index: '01', label: 'Work', to: '/#work' },
+  { index: '01', label: 'Projects', to: '/#work' },
   { index: '02', label: 'Blog', to: '/blog' },
   { index: '03', label: 'About', to: '/#about' },
   { index: '04', label: 'Contact', to: '/#contact' },
@@ -44,7 +44,7 @@ function NavClock() {
  * Direct-Link Visitor (US-10) always has a way back home and enough
  * identity context, and a Recruiter (US-4) always has the resume CTA within
  * reach. Numbered items map to the site's real sections (US-9 revamp):
- * Work/About/Contact live as anchors on Home, Blog is its own route.
+ * Projects/About/Contact live as anchors on Home, Blog is its own route.
  */
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)

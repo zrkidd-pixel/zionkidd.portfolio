@@ -286,3 +286,11 @@ This file tracks all decisions, user inputs, and AI responses throughout the AI-
 **Context**: OPERATIONS phase, UI/UX Refinements stage. Hero auto-advance shipping to main.
 
 ---
+
+## Nav Label: Work → Projects
+**Timestamp**: 2026-09-08T11:05:00Z
+**User Input**: "01 - Work should be changed to Projects"
+**AI Response**: Renamed the visible label from "Work" to "Projects" in the nav (`Navbar.tsx` NAV_ITEMS) and the Home section heading/aria-label (`Home.tsx`). Kept the underlying anchor `id="work"` / `/#work` link target unchanged (internal implementation detail, not part of the request). Re-ran lint/test/build — all green.
+**Context**: OPERATIONS phase, UI/UX Refinements stage, small content tweak — implemented and verified.
+
+---

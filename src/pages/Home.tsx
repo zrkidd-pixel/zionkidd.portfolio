@@ -199,10 +199,10 @@ export function Home() {
       </section>
 
       <div className="container">
-        <section id="work" className="section" aria-label="Work">
+        <section id="work" className="section" aria-label="Projects">
           <div className="section__heading">
             <span className="section__index">01</span>
-            <h2 className="section__title">Work</h2>
+            <h2 className="section__title">Projects</h2>
           </div>
           <div className="project-grid">
             {caseStudies.map((study) => (
