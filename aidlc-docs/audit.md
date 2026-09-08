@@ -174,3 +174,27 @@ This file tracks all decisions, user inputs, and AI responses throughout the AI-
 **Context**: OPERATIONS phase, UI/UX Refinements stage, Steps 10-12 complete. Presenting completion message with screenshots — awaiting Step 13 approval before/alongside commit.
 
 ---
+
+## UI/UX Refinements — Hero Approval + Next Phase Framing
+**Timestamp**: 2026-09-08T09:20:00Z
+**User Input**: "I'm going to approve for now. Then we are going to refund specific areas section by section . Does that make sense?" (read as "refine", not "refund" — typo)
+**AI Response**: Hero revamp approved (Step 13 cleared; already committed/pushed as ae19d90). Confirmed understanding: next we go section-by-section through the rest of the site (Work/project cards, About, Contact, Blog, case-study template, footer, etc.) the same way the hero was done — one section at a time, decision by decision, mockup-style confirmation before implementation where warranted. Asked user which section to start with.
+**Context**: OPERATIONS phase, UI/UX Refinements stage — hero sub-cycle closed, opening a new section-by-section refinement cycle per user's stated approach.
+
+---
+
+## Hero Revamp — PR Opened
+**Timestamp**: 2026-09-08T09:30:00Z
+**User Input**: "I'm not seeing the site updates on my end" — then, when asked whether to open a PR now or keep iterating on the branch first, chose "Open a PR now".
+**AI Response**: Explained why nothing was visible: the live GitHub Pages site only redeploys on pushes to `main` (`.github/workflows/deploy.yml`), and all work so far was on the feature branch, never merged. Opened PR #6 (https://github.com/zrkidd-pixel/zionkidd.portfolio/pull/6), `claude/ai-dlc-operations-redesign-by2k1x` → `main`, with a summary of changes, known follow-ups (placeholder contact/resume/bio/video), and the test plan. No PR template existed in the repo to follow.
+**Context**: OPERATIONS phase, UI/UX Refinements stage. PR opened at user's request; re-asking which section to refine next now that the deployment-visibility confusion is resolved.
+
+---
+
+## Next Section: Hero Video Placeholders
+**Timestamp**: 2026-09-08T09:40:00Z
+**User Input**: Chose to watch PR #6 for CI/review activity; chose "hero video placeholders" as the next section to refine; then: "I don't have videos, we need to create them. We should first start by using real videos, could you help me with that? Like getting a video of a vineyard for the first one?"
+**AI Response**: Subscribed to PR #6 activity. Attempted to source a real vineyard video for the Vine to Wine slide — `curl`/`WebFetch` to Pexels/Pixabay/Coverr/Mixkit/Videvo/Videezy/Vimeo all blocked with 403 by this session's egress proxy (org policy, per `/root/.ccr/README.md`: "do not retry or route around it — report the blocked host"). WebSearch (routed differently) still works, so found and shared a curated shortlist of free, no-attribution-required candidate clips (Pexels grape-vineyard-853754, Pixabay wine-grapes-grapevine-harvest-62078, plus both sites' vineyard search pages) and asked the user to download one and send the file directly so I can wire it into the hero as a real `<video>` element for that slide.
+**Context**: OPERATIONS phase, UI/UX Refinements stage, hero video-placeholder sub-task — blocked on user supplying the actual video file (network-restricted in this session).
+
+---
