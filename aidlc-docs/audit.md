@@ -318,3 +318,11 @@ This file tracks all decisions, user inputs, and AI responses throughout the AI-
 **Context**: OPERATIONS phase, UI/UX Refinements stage, hero copy — final version implemented and verified.
 
 ---
+
+## Pushed Welcome Copy to Main
+**Timestamp**: 2026-09-08T11:30:00Z
+**User Input**: "Yes" (confirming push to main)
+**AI Response**: Clean fast-forward, pushed directly to main. `Deploy to GitHub Pages` run #10 started on the new commit (e7ab41a).
+**Context**: OPERATIONS phase, UI/UX Refinements stage. Welcome-message hero copy shipping to main.
+
+---
