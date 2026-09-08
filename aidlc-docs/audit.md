@@ -254,3 +254,11 @@ This file tracks all decisions, user inputs, and AI responses throughout the AI-
 **Context**: OPERATIONS phase, UI/UX Refinements stage. Hero video-placeholder sub-task fully closed: sourced, wired, verified, shipped. Awaiting user direction on the next section.
 
 ---
+
+## Section 2: Work / Project Cards — Design Decisions + Implementation
+**Timestamp**: 2026-09-08T10:45:00Z
+**User Input**: Chose "Work / project cards" as the next section, then answered 4 one-at-a-time decision questions (full Q&A recorded in `reference-analysis.md` Decisions 13-16): card visual anchor (video-still thumbnail, replacing emoji), card container style (full-bleed thumbnail, transparent text below), hover behavior (crossfade to real playing video + "View case study →" overlay), Coming Soon card treatment (blend in, label only).
+**AI Response**: Generated poster stills for all 3 projects via `ffmpeg` (`public/images/work/{slug}.jpg`, ~2s into each clip). Rewrote `ProjectCard.tsx`: full-bleed `<img>` poster by default, swaps to the real `<video>` (muted/loop/playsInline, mounted only on hover to avoid loading 3 more videos eagerly) once it reports `onCanPlay`, with a gradient overlay + "View case study →" label fading in on hover/focus. Removed the `emoji` prop entirely from the component (content files keep the field — still used by the not-yet-refined case-study template). Refactored `Home.tsx` with a shared `PROJECT_MEDIA` map (video + poster per slug) used by both the hero switcher and the project cards, removing duplication. Rewrote the card CSS in `home.css`: dropped the old bordered/`card-surface` container and the `--coming-soon` dimmed/dashed styling per the "blend in" decision. Updated `ProjectCard.test.tsx` (removed `emoji`, added `posterSrc`) to match the new prop signature. Re-ran lint/test/build (15/15 passing) and verified visually via Playwright screenshots (static grid, hover state showing the overlay, Coming Soon card) — layout, overlay, and blend-in treatment all confirmed; video crossfade itself couldn't be visually confirmed for the same headless-Chromium codec-decode limitation noted earlier, not a code issue.
+**Context**: OPERATIONS phase, UI/UX Refinements stage, Work/project-cards section — implemented and verified, not yet committed/pushed.
+
+---

@@ -63,6 +63,26 @@ here one at a time as they're confirmed.
 **Answer**: Keep it — dark is the default, but the light theme stays available and gets restyled to match the new gold/amber-on-warm system (not the old maroon).
 **Implication**: `useTheme.ts` / `ThemeToggle.tsx` stay in place. `tokens.css` gets both a dark block (new default, black bg / white text / gold accent) and an updated light block (existing warm cream bg, but accent swapped from maroon to gold/amber for consistency). Figtree replaces Archivo/Fraunces/Inter in both themes (Decision 4 applies regardless of theme).
 
+## Section 2: Work / Project Cards
+
+### Decision 13: Card Visual Anchor
+**Question**: Replace the colorful emoji (leftover from the old warm/editorial look) with what?
+**Answer**: A still frame from that project's real hero video (all 3 projects now have one).
+**Implication**: Generated poster JPGs via `ffmpeg` from each hero video (`public/images/work/{slug}.jpg`), ~2s into the clip. `emoji` field stays in the content data files (harmless, may still be used elsewhere) but is no longer rendered by `ProjectCard`.
+
+### Decision 14: Card Container Style
+**Question**: Minimal border-only vs. elevated surface fill vs. full-bleed thumbnail with transparent text area?
+**Answer**: Thumbnail bleeds full-width at the top of the card, text content sits below on transparent/page background — editorial/magazine feel, no card border/fill.
+
+### Decision 15: Hover Behavior
+**Question**: Crossfade to real video / lift+zoom / overlay label — pick one?
+**Answer**: Mix of crossfade-to-video AND overlay label: on hover the poster swaps to the real video (muted, looped, playing), with a "View case study →" label fading in over it.
+**Implication**: Video only mounts/loads on hover (not eagerly on page load) to avoid tripling the hero's video bandwidth cost on a page that already autoplays 3 videos in the hero.
+
+### Decision 16: Coming Soon Card Differentiation
+**Question**: Now that it also has real video, should the Coming Soon card still look visually unfinished?
+**Answer**: Blend in — same full-strength treatment as finished cards, differentiated only by the small "Coming Soon" tag/chip (no dimming, no dashed border).
+
 ## Summary — All Decisions Locked
 1. Full site-wide switch to dark/bold (not homepage-only)
 2. Video hero background kept, user supplies real footage; placeholder slots in mockup/implementation until then

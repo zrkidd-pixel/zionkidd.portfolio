@@ -6,10 +6,25 @@ import { site, hasResume } from '../content/site'
 import { ProjectCard } from '../components/ProjectCard'
 import '../styles/home.css'
 
+const PROJECT_MEDIA: Record<string, { video: string; poster: string }> = {
+  'vine-to-wine': {
+    video: `${import.meta.env.BASE_URL}videos/vine-to-wine.mp4`,
+    poster: `${import.meta.env.BASE_URL}images/work/vine-to-wine.jpg`,
+  },
+  'my-fitness-app': {
+    video: `${import.meta.env.BASE_URL}videos/my-fitness-app.mp4`,
+    poster: `${import.meta.env.BASE_URL}images/work/my-fitness-app.jpg`,
+  },
+  'wine-society-rebrand': {
+    video: `${import.meta.env.BASE_URL}videos/wine-society-rebrand.mp4`,
+    poster: `${import.meta.env.BASE_URL}images/work/wine-society-rebrand.jpg`,
+  },
+}
+
 const HERO_SLIDES = [
-  { slug: caseStudies[0].slug, label: caseStudies[0].name, video: `${import.meta.env.BASE_URL}videos/vine-to-wine.mp4` },
-  { slug: caseStudies[1].slug, label: caseStudies[1].name, video: `${import.meta.env.BASE_URL}videos/my-fitness-app.mp4` },
-  { slug: comingSoonProject.slug, label: comingSoonProject.name, video: `${import.meta.env.BASE_URL}videos/wine-society-rebrand.mp4` },
+  { slug: caseStudies[0].slug, label: caseStudies[0].name, video: PROJECT_MEDIA[caseStudies[0].slug].video },
+  { slug: caseStudies[1].slug, label: caseStudies[1].name, video: PROJECT_MEDIA[caseStudies[1].slug].video },
+  { slug: comingSoonProject.slug, label: comingSoonProject.name, video: PROJECT_MEDIA[comingSoonProject.slug].video },
 ]
 
 function usePrefersReducedMotion() {
@@ -165,17 +180,19 @@ export function Home() {
               <ProjectCard
                 key={study.slug}
                 slug={study.slug}
-                emoji={study.emoji}
                 name={study.name}
                 summary={study.oneLineSummary}
+                posterSrc={PROJECT_MEDIA[study.slug].poster}
+                videoSrc={PROJECT_MEDIA[study.slug].video}
                 techStack={study.techStack}
               />
             ))}
             <ProjectCard
               slug={comingSoonProject.slug}
-              emoji={comingSoonProject.emoji}
               name={comingSoonProject.name}
               summary={comingSoonProject.oneLineSummary}
+              posterSrc={PROJECT_MEDIA[comingSoonProject.slug].poster}
+              videoSrc={PROJECT_MEDIA[comingSoonProject.slug].video}
               comingSoon
             />
           </div>

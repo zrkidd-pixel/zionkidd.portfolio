@@ -9,9 +9,9 @@ function renderCard(props: Partial<ComponentProps<typeof ProjectCard>> = {}) {
     <MemoryRouter>
       <ProjectCard
         slug="vine-to-wine"
-        emoji="🍷"
         name="Vine to Wine"
         summary="Learn wine through flashcards, quizzes, and games."
+        posterSrc="/images/work/vine-to-wine.jpg"
         techStack={['React Native', 'Expo', 'TypeScript']}
         {...props}
       />

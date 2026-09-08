@@ -53,10 +53,11 @@
 ### 🟡 OPERATIONS PHASE
 - [x] UI/UX Refinements — Hero sub-cycle: approved, merged (PR #6), deployed live
 - [x] UI/UX Refinements — Hero video placeholders sub-task: COMPLETE (all 3 slides have real footage)
+- [x] UI/UX Refinements — Work/project cards sub-task: implemented, verified, awaiting push
 - [ ] Screen Content Refinements (if applicable)
 
 ## Current Status
 - **Lifecycle Phase**: OPERATIONS
-- **Current Stage**: Hero revamp is live at https://zrkidd-pixel.github.io/zionkidd.portfolio/ (PR #6 merged, deploy succeeded). Vine to Wine hero slide now plays a real vineyard video (`public/videos/vine-to-wine.mp4`, user-supplied); Fitness App and Next Project slides still gradient placeholders pending footage. Not yet committed/pushed on the branch — pending in this working tree.
-- **Next Stage**: Commit + push the video wiring; source/wire the remaining 2 hero videos if the user wants; then continue section-by-section (Work cards, About, Contact, case-study template — user's choice each time)
-- **Status**: In progress, mid-cycle on hero video sourcing
+- **Current Stage**: Hero (with all 3 real videos) is live at https://zrkidd-pixel.github.io/zionkidd.portfolio/. Work section just rebuilt (video-still thumbnails, hover-to-video + overlay, blended Coming Soon card) — implemented and verified locally, not yet pushed.
+- **Next Stage**: Commit + push Work section; then continue section-by-section (About, Contact, case-study template — user's choice each time)
+- **Status**: In progress, mid-cycle on Work/project-cards section
