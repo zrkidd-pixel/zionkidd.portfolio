@@ -22,7 +22,7 @@ export const site = {
   web3FormsAccessKey: '1463f598-f036-48d1-8d63-87d26b43e5c7',
   // TODO: revisit after MVP — leave any entry blank to hide it
   links: {
-    linkedin: '',
+    linkedin: 'https://www.linkedin.com/in/zionkidd/',
     github: 'https://github.com/zrkidd-pixel',
     twitter: '',
   },
