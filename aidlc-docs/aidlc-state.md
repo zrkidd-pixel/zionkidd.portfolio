@@ -51,11 +51,12 @@
 - [x] Build and Test — EXECUTE (complete, awaiting user approval)
 
 ### 🟡 OPERATIONS PHASE
-- [x] UI/UX Refinements — implemented, tested, awaiting final user review (Step 13)
+- [x] UI/UX Refinements — Hero sub-cycle: approved, merged (PR #6), deployed live
+- [~] UI/UX Refinements — Hero video placeholders sub-task: IN PROGRESS (waiting on user to supply real footage)
 - [ ] Screen Content Refinements (if applicable)
 
 ## Current Status
 - **Lifecycle Phase**: OPERATIONS
-- **Current Stage**: UI/UX Refinements implementation complete — dark/bold revamp shipped to the feature branch (tokens, Navbar, Hero). Lint/test/build all green; manually verified across breakpoints and themes.
-- **Next Stage**: User review of the live changes → real content still needed (contactEmail, resumeHref, real video footage, real bio) → open a PR when user asks
-- **Status**: Implementation complete, in review
+- **Current Stage**: Hero revamp is live at https://zrkidd-pixel.github.io/zionkidd.portfolio/ (PR #6 merged, deploy succeeded). Now working section-by-section per user's request: currently sourcing a real vineyard video for the Vine to Wine hero slide (blocked on this session's network egress policy — shared a curated stock-video shortlist and asked the user to download + send a file).
+- **Next Stage**: Once video file received, wire it into the hero as a real `<video>` element for that slide; then continue section-by-section (Work cards, About, Contact, case-study template — user's choice each time)
+- **Status**: In progress, mid-cycle on hero video sourcing

@@ -198,3 +198,11 @@ This file tracks all decisions, user inputs, and AI responses throughout the AI-
 **Context**: OPERATIONS phase, UI/UX Refinements stage, hero video-placeholder sub-task — blocked on user supplying the actual video file (network-restricted in this session).
 
 ---
+
+## PR #6 Merged — Hero Revamp Live
+**Timestamp**: 2026-09-08T09:50:00Z
+**User Input**: (merged PR #6 directly on GitHub — no chat message)
+**AI Response**: PR subscription delivered the "subscription.created" event; checked PR #6 state directly (`pull_request_read` get/get_check_runs/get_review_comments): merged at 07:48:21Z, no check runs recorded against the PR itself, no review comments. Confirmed the `Deploy to GitHub Pages` workflow ran on the resulting `main` merge commit (20cfe2a) and completed successfully — the hero revamp is now live at https://zrkidd-pixel.github.io/zionkidd.portfolio/. Unsubscribed from PR #6 activity (nothing left to watch on a merged PR). Per the session's branch-restart rule for an already-merged designated branch: fetched `origin/main`, confirmed only one unmerged commit sat on top of the merged history (the audit-log commit `a23c7f6`), and rebased it onto the fresh `origin/main` (`git rebase --onto origin/main ae19d90 claude/ai-dlc-operations-redesign-by2k1x`) rather than discarding it, then force-with-lease pushed. The branch is now a clean base for the next section's follow-up work, still carrying that one audit-log commit forward.
+**Context**: OPERATIONS phase, UI/UX Refinements stage. Hero sub-cycle fully closed (approved, implemented, merged, deployed). Branch reset to track main correctly for the next section (hero video placeholders sourcing, currently waiting on user to supply a video file).
+
+---
