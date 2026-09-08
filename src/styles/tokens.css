@@ -1,0 +1,87 @@
+/*
+  Design system tokens — "editorial agency-poster" direction.
+  Light theme lives on :root; dark theme overrides via [data-theme="dark"]
+  and a prefers-color-scheme fallback for visitors who haven't set an
+  explicit override yet (see src/hooks/useTheme.ts).
+*/
+
+:root {
+  /* Color: light (default) */
+  --color-bg: #f5f1e8;
+  --color-bg-alt: #ece4d3;
+  --color-surface: #ffffff;
+  --color-ink: #1a1614;
+  --color-ink-soft: #554d47;
+  --color-ink-faint: #8a8078;
+  --color-accent: #7a1f2b;
+  --color-accent-ink: #ffffff;
+  --color-accent-soft: #e9d3d5;
+  --color-border: #ddd1bb;
+  --color-placeholder-bg: #f2e9d8;
+  --color-placeholder-border: #cbb98f;
+
+  /* Typography */
+  --font-display: 'Archivo', 'Arial Narrow', sans-serif;
+  --font-accent: 'Fraunces', 'Georgia', serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.75rem;
+  --text-2xl: 2.5rem;
+  --text-3xl: 3.5rem;
+
+  --tracking-caps: 0.12em;
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+
+  /* Shape / effects */
+  --radius-pill: 999px;
+  --radius-card: 1.25rem;
+  --radius-photo: 2.5rem 2.5rem 0.75rem 0.75rem;
+  --rule-weight: 1px;
+  --max-width: 72rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --color-bg: #16120f;
+    --color-bg-alt: #201a15;
+    --color-surface: #241d18;
+    --color-ink: #f5f1e8;
+    --color-ink-soft: #cdc3b8;
+    --color-ink-faint: #948a7f;
+    --color-accent: #e2828d;
+    --color-accent-ink: #1a1614;
+    --color-accent-soft: #3a2226;
+    --color-border: #3a3128;
+    --color-placeholder-bg: #241d18;
+    --color-placeholder-border: #574a34;
+  }
+}
+
+:root[data-theme='dark'] {
+  --color-bg: #16120f;
+  --color-bg-alt: #201a15;
+  --color-surface: #241d18;
+  --color-ink: #f5f1e8;
+  --color-ink-soft: #cdc3b8;
+  --color-ink-faint: #948a7f;
+  --color-accent: #e2828d;
+  --color-accent-ink: #1a1614;
+  --color-accent-soft: #3a2226;
+  --color-border: #3a3128;
+  --color-placeholder-bg: #241d18;
+  --color-placeholder-border: #574a34;
+}

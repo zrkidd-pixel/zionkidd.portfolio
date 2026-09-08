@@ -1,0 +1,103 @@
+.case-study {
+  padding: var(--space-12) 0 var(--space-16);
+}
+
+.case-study__eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.case-study__title {
+  font-size: var(--text-3xl);
+  max-width: 30ch;
+}
+
+.case-study__summary {
+  margin-top: var(--space-4);
+  font-size: var(--text-xl);
+  font-family: var(--font-accent);
+  font-style: italic;
+  color: var(--color-accent);
+  max-width: 45ch;
+}
+
+.case-study__cta-row {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.case-study__section {
+  margin-top: var(--space-12);
+}
+
+.case-study__section h2 {
+  font-size: var(--text-xl);
+}
+
+.case-study__section p {
+  margin-top: var(--space-3);
+  color: var(--color-ink-soft);
+  max-width: 65ch;
+}
+
+.case-study__bonus {
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-card);
+  padding: var(--space-8);
+  margin-top: var(--space-16);
+}
+
+.case-study__bonus-heading {
+  margin-bottom: var(--space-6);
+}
+
+.case-study__stats-row {
+  display: flex;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.case-study__quotes {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-3) 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.case-study__quotes blockquote {
+  margin: 0;
+  padding-left: var(--space-4);
+  border-left: 3px solid var(--color-accent);
+  font-family: var(--font-accent);
+  font-style: italic;
+  color: var(--color-ink);
+}
+
+.case-study__tech-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.teaser {
+  padding: var(--space-16) 0;
+  text-align: left;
+}
+
+.teaser__title {
+  font-size: var(--text-3xl);
+}
+
+.teaser__body {
+  margin-top: var(--space-4);
+  max-width: 55ch;
+  color: var(--color-ink-soft);
+  font-size: var(--text-lg);
+}

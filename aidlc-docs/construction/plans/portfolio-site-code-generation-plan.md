@@ -19,50 +19,50 @@
 ## Step-by-Step Plan
 
 ### Project Structure Setup
-- [ ] Step 1: Scaffold Vite + React + TypeScript project at workspace root (`package.json`, `vite.config.ts`, `tsconfig.json`, `index.html`, `src/main.tsx`), configured for GitHub Pages base path (`/zionkidd.portfolio/`)
-- [ ] Step 2: Add React Router (`HashRouter`) and base route structure in `src/App.tsx`
-- [ ] Step 3: Create design token stylesheet `src/styles/tokens.css` (cream/ink/burgundy palette, light + dark variants, type scale, spacing scale) per requirements.md FR-5
-- [ ] Step 4: Create global base styles `src/styles/global.css` (resets, typography defaults, pill-button/tag-chip/rule-divider utility classes)
+- [x] Step 1: Scaffold Vite + React + TypeScript project at workspace root (`package.json`, `vite.config.ts`, `tsconfig.json`, `index.html`, `src/main.tsx`), configured for GitHub Pages base path (`/zionkidd.portfolio/`)
+- [x] Step 2: Add React Router (`HashRouter`) and base route structure in `src/App.tsx`
+- [x] Step 3: Create design token stylesheet `src/styles/tokens.css` (cream/ink/burgundy palette, light + dark variants, type scale, spacing scale) per requirements.md FR-5
+- [x] Step 4: Create global base styles `src/styles/global.css` (resets, typography defaults, pill-button/tag-chip/rule-divider utility classes)
 
 ### Shared Layout & Components
-- [ ] Step 5: `src/components/layout/Header.tsx` — site name/logo (links home per US-10), nav, dark-mode toggle, resume download button (US-4, US-10, US-13)
-- [ ] Step 6: `src/components/layout/Footer.tsx` — secondary links, resume download fallback location
-- [ ] Step 7: `src/components/ThemeToggle.tsx` + `src/hooks/useTheme.ts` — system-preference default, manual override persisted to localStorage (US-13)
-- [ ] Step 8: `src/lib/analytics.ts` — provider-agnostic pageview tracker wired to route changes
-- [ ] Step 9: `src/components/ProjectCard.tsx` — one-line summary, tech chips, distinct muted styling for the "Coming Soon" state (US-2)
-- [ ] Step 10: `src/components/StatBlock.tsx` — big bold numeral stat callout, reused by the Impact bonus section (FR-5)
-- [ ] Step 11: `src/components/PlaceholderNote.tsx` — clearly-marked placeholder treatment for missing bonus content / blank bio fields (US-6, FR-4)
+- [x] Step 5: `src/components/layout/Header.tsx` — site name/logo (links home per US-10), nav, dark-mode toggle, resume download button (US-4, US-10, US-13)
+- [x] Step 6: `src/components/layout/Footer.tsx` — secondary links, resume download fallback location
+- [x] Step 7: `src/components/ThemeToggle.tsx` + `src/hooks/useTheme.ts` — system-preference default, manual override persisted to localStorage (US-13)
+- [x] Step 8: `src/lib/analytics.ts` — provider-agnostic pageview tracker wired to route changes
+- [x] Step 9: `src/components/ProjectCard.tsx` — one-line summary, tech chips, distinct muted styling for the "Coming Soon" state (US-2)
+- [x] Step 10: `src/components/StatBlock.tsx` — big bold numeral stat callout, reused by the Impact bonus section (FR-5)
+- [x] Step 11: `src/components/PlaceholderNote.tsx` — clearly-marked placeholder treatment for missing bonus content / blank bio fields (US-6, FR-4)
 
 ### Frontend Components: Home Page
-- [ ] Step 12: `src/content/site.ts` — centralized editable content: author name (Zion Kidd), placeholder title/bio/contact/links/resume path, each field commented `// TODO: revisit after MVP` (US-9, FR-4)
-- [ ] Step 13: `src/pages/Home.tsx` — hero/intro section (US-1) + project grid (US-2) rendering `ProjectCard` for Vine to Wine, my-fitness-app, and the logo-rebrand Coming Soon card (clickable → teaser route, US-12)
+- [x] Step 12: `src/content/site.ts` — centralized editable content: author name (Zion Kidd), placeholder title/bio/contact/links/resume path, each field commented `// TODO: revisit after MVP` (US-9, FR-4)
+- [x] Step 13: `src/pages/Home.tsx` — hero/intro section (US-1) + project grid (US-2) rendering `ProjectCard` for Vine to Wine, my-fitness-app, and the logo-rebrand Coming Soon card (clickable → teaser route, US-12)
 
 ### Case Study Content Data
-- [ ] Step 14: `src/content/types.ts` — shared `CaseStudy` TypeScript interface (summary, problem, targetUser, competitors, insight, solution, distribution?, feedback?, impact?, quotes?, techStack, links, each optional bonus field flaggable as placeholder)
-- [ ] Step 15: `src/content/case-studies/vine-to-wine.ts` — populated from `Vine_to_Wine`'s README + `aidlc-docs/inception/requirements/requirements.md` (real features, tech stack, wine-club GTM context for target user/distribution); insight and real user quotes marked as placeholders
-- [ ] Step 16: `src/content/case-studies/my-fitness-app.ts` — populated from `my-fitness-app`'s README + its own requirements.md (real features, tech stack, local-first/privacy positioning, portfolio-project context for target user); insight and real user quotes marked as placeholders
+- [x] Step 14: `src/content/types.ts` — shared `CaseStudy` TypeScript interface (summary, problem, targetUser, competitors, insight, solution, distribution?, feedback?, impact?, quotes?, techStack, links, each optional bonus field flaggable as placeholder)
+- [x] Step 15: `src/content/case-studies/vine-to-wine.ts` — populated from `Vine_to_Wine`'s README + `aidlc-docs/inception/requirements/requirements.md` (real features, tech stack, wine-club GTM context for target user/distribution); insight and real user quotes marked as placeholders
+- [x] Step 16: `src/content/case-studies/my-fitness-app.ts` — populated from `my-fitness-app`'s README + its own requirements.md (real features, tech stack, local-first/privacy positioning, portfolio-project context for target user); insight and real user quotes marked as placeholders
 
 ### Frontend Components: Case Study & Teaser Pages
-- [ ] Step 17: `src/components/CaseStudyLayout.tsx` — the reusable template (US-5, US-8): renders all 6 core sections always, renders bonus sections via `PlaceholderNote` when absent (US-6), tech-stack chips + links (US-7), a "Try it" CTA distinct from the resume CTA when a live link exists (US-11), and standalone header context for direct-link arrivals (US-10)
-- [ ] Step 18: `src/pages/CaseStudy.tsx` — route wrapper resolving `:slug` to a case-study data file and rendering it through `CaseStudyLayout`
-- [ ] Step 19: `src/pages/LogoRebrandTeaser.tsx` — minimal standalone teaser page (US-12): one-line project description + "case study launching soon" messaging, same header/nav context as real case studies (US-10)
+- [x] Step 17: `src/components/CaseStudyLayout.tsx` — the reusable template (US-5, US-8): renders all 6 core sections always, renders bonus sections via `PlaceholderNote` when absent (US-6), tech-stack chips + links (US-7), a "Try it" CTA distinct from the resume CTA when a live link exists (US-11), and standalone header context for direct-link arrivals (US-10)
+- [x] Step 18: `src/pages/CaseStudy.tsx` — route wrapper resolving `:slug` to a case-study data file and rendering it through `CaseStudyLayout`
+- [x] Step 19: `src/pages/LogoRebrandTeaser.tsx` — minimal standalone teaser page (US-12): one-line project description + "case study launching soon" messaging, same header/nav context as real case studies (US-10)
 
 ### Frontend Components: Blog & Extras
-- [ ] Step 20: `src/content/posts.ts` + `src/pages/BlogList.tsx` + `src/pages/BlogPost.tsx` — minimal blog section (launches with zero or one placeholder post)
+- [x] Step 20: `src/content/posts.ts` + `src/pages/BlogList.tsx` + `src/pages/BlogPost.tsx` — minimal blog section (launches with zero or one placeholder post)
 
 ### Frontend Components Unit Testing
-- [ ] Step 21: `vitest` + React Testing Library setup (`vitest.config.ts`, `src/test/setup.ts`)
-- [ ] Step 22: Tests for `ProjectCard` (renders summary; Coming Soon variant is visually/functionally distinct and links to the teaser route)
-- [ ] Step 23: Tests for `CaseStudyLayout` (all 6 core sections always render; missing bonus sections render a placeholder, not nothing; "Try it" CTA only renders when a live link exists — covers US-5/US-6/US-11)
-- [ ] Step 24: Tests for `useTheme`/`ThemeToggle` (defaults to system preference; manual toggle persists across a simulated reload — covers US-13)
-- [ ] Step 25: Routing smoke test (home, both case-study routes, teaser route, blog routes all resolve under `HashRouter` — covers US-10/US-12)
+- [x] Step 21: `vitest` + React Testing Library setup (`vitest.config.ts`, `src/test/setup.ts`)
+- [x] Step 22: Tests for `ProjectCard` (renders summary; Coming Soon variant is visually/functionally distinct and links to the teaser route)
+- [x] Step 23: Tests for `CaseStudyLayout` (all 6 core sections always render; missing bonus sections render a placeholder, not nothing; "Try it" CTA only renders when a live link exists — covers US-5/US-6/US-11)
+- [x] Step 24: Tests for `useTheme`/`ThemeToggle` (defaults to system preference; manual toggle persists across a simulated reload — covers US-13)
+- [x] Step 25: Routing smoke test (home, both case-study routes, teaser route, blog routes all resolve under `HashRouter` — covers US-10/US-12)
 
 ### Frontend Components Summary
-- [ ] Step 26: `aidlc-docs/construction/portfolio-site/code/summary.md` — markdown summary of what was generated, file map, and story traceability table (which files satisfy which US-#)
+- [x] Step 26: `aidlc-docs/construction/portfolio-site/code/summary.md` — markdown summary of what was generated, file map, and story traceability table (which files satisfy which US-#)
 
 ### Deployment Artifacts Generation
-- [ ] Step 27: `.github/workflows/deploy.yml` — GitHub Actions workflow: build on push to the default branch, deploy to GitHub Pages via `actions/upload-pages-artifact` + `actions/deploy-pages`
-- [ ] Step 28: Root `README.md` for the repo — setup/dev instructions, how to add a new case study later (US-8), how to fill in placeholder content (US-9), and a note that the repo's Settings → Pages source must be set to "GitHub Actions" (one-time manual step in the GitHub UI, outside what git/API access here can set)
+- [x] Step 27: `.github/workflows/deploy.yml` — GitHub Actions workflow: build on push to the default branch, deploy to GitHub Pages via `actions/upload-pages-artifact` + `actions/deploy-pages`
+- [x] Step 28: Root `README.md` for the repo — setup/dev instructions, how to add a new case study later (US-8), how to fill in placeholder content (US-9), and a note that the repo's Settings → Pages source must be set to "GitHub Actions" (one-time manual step in the GitHub UI, outside what git/API access here can set)
 
 ## Story Traceability
 | Story | Covered by Steps |

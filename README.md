@@ -1,104 +1,79 @@
-# AI-DLC Project Template
+# Zion Kidd — Portfolio
 
-A reusable template for AI-Driven Development Life Cycle (AI-DLC) projects. This template provides the scaffolding for structured, AI-assisted software development with comprehensive documentation, state tracking, and workflow guidance.
+Personal portfolio site: case studies for shipped projects (Vine to Wine, My Fitness App), a
+"coming soon" placeholder for a wine society logo rebrand, a small blog, and a dark-mode-aware
+editorial design system.
 
-## Quick Start
+Live at: https://zrkidd-pixel.github.io/zionkidd.portfolio/
 
-1. **Create a new repo from this template**:
-   - Click "Use this template" on GitHub, or
-   - Clone and remove the `.git` folder to start fresh
+## Stack
 
-2. **Customize for your project**:
-   - Update `CLAUDE.md` with any project-specific context (optional)
-   - The workflow will auto-detect your project type on first run
+- React + TypeScript + Vite
+- React Router (`HashRouter` — deliberate, see below)
+- Plain CSS with custom-property design tokens (no framework)
+- Vitest + React Testing Library
+- Deployed to GitHub Pages via GitHub Actions
 
-3. **Start the AI-DLC workflow**:
-   - Open the project in your AI-assisted IDE (Kiro, Cursor, Claude Code, etc.)
-   - Describe what you want to build
-   - The AI will guide you through INCEPTION → CONSTRUCTION → OPERATIONS
+## Getting Started
 
-## What's Included
-
-```
-ai-dlc-template/
-├── .aidlc-rule-details/      # Methodology rules (Claude Code/Cursor/Cline)
-├── .kiro/
-│   ├── aws-aidlc-rule-details/  # Methodology rules (Kiro)
-│   └── steering/
-│       └── ai-dlc.md            # Workflow pointer + preferences
-├── aidlc-docs/
-│   ├── aidlc-state.md           # Workflow state (starts fresh)
-│   ├── audit.md                 # Decision history (starts empty)
-│   └── preferences.md           # Your baked-in preferences
-├── CLAUDE.md                    # Primary workflow instructions
-├── CHANGELOG.md                 # Template version history
-└── .gitignore
+```bash
+npm install
+npm run dev       # local dev server
+npm test          # run the test suite
+npm run build     # production build to dist/
+npm run preview   # preview the production build locally
 ```
 
-## Baked-In Preferences
+## One-time repo setting required for deployment
 
-This template includes universal preferences that work well across projects:
+This repo's `.github/workflows/deploy.yml` deploys via GitHub Actions, which requires the
+repository's **Settings → Pages → Source** to be set to **"GitHub Actions"** (not "Deploy from a
+branch"). This is a one-time manual step in the GitHub UI — it isn't something a workflow file or
+git push can set on its own.
 
-- **Ask questions inline, one at a time** (not batched lists or separate question files)
-- **Complete each unit fully** (design + code) before starting the next
-- **Pressure-test swarm protocol is opt-in** (only when explicitly requested)
-- **Block on high-severity findings** during pressure tests
+## Project Structure
 
-These can be found in `aidlc-docs/preferences.md` and referenced in `.kiro/steering/ai-dlc.md`.
+```
+src/
+├── components/         # Shared UI: Header, Footer, ProjectCard, CaseStudyLayout, etc.
+├── content/            # All editable content lives here — see below
+│   ├── site.ts         # Name/bio/contact/resume — the placeholders to fill in post-MVP
+│   ├── types.ts         # Shared CaseStudy shape
+│   ├── case-studies/    # One file per full case study
+│   ├── comingSoon.ts    # The "Coming Soon" project card + teaser page content
+│   └── posts.ts         # Blog posts
+├── hooks/useTheme.ts    # Dark/light mode (system-default, manual override persisted)
+├── lib/analytics.ts     # Pageview tracking (GoatCounter — add your site code to activate)
+├── pages/               # Route-level components
+└── styles/              # tokens.css (design system) + global.css + per-area stylesheets
+```
 
-## Supported AI Tools
+## Adding a new case study later
 
-This template works with multiple AI-assisted development tools:
+1. Add a new file under `src/content/case-studies/` implementing the `CaseStudy` interface from
+   `src/content/types.ts`. Any bonus section (`distribution`, `feedback`, `impact`, `quotes`) you
+   don't have real content for yet — wrap it in `placeholder('...')` rather than omitting it, so
+   the site shows a clearly-marked "coming soon" note instead of silently leaving it out.
+2. Add it to the `caseStudies` array in `src/content/case-studies/index.ts`.
+3. Done — it renders through the same `CaseStudyLayout` template as every other project, at
+   `/#/<slug>`, and shows up on the home page grid automatically.
 
-| Tool | Rule Path Used |
-|------|----------------|
-| Claude Code | `.aidlc-rule-details/` |
-| Cursor | `.aidlc-rule-details/` |
-| Cline | `.aidlc-rule-details/` |
-| Kiro | `.kiro/aws-aidlc-rule-details/` |
-| Amazon Q | `.amazonq/aws-aidlc-rule-details/` (add if needed) |
+To turn the wine society "Coming Soon" card into a real case study once it's ready: do the above
+with `slug: 'wine-society-rebrand'`, then remove the special-cased `comingSoonProject` card in
+`src/pages/Home.tsx` (the route itself doesn't need to change — no broken links).
 
-## Updating the Methodology
+## Filling in the placeholders
 
-When improvements are made to the AI-DLC rules:
+Everything marked `// TODO: revisit after MVP` lives in `src/content/site.ts` (name, title, bio,
+contact email, social links, resume file). Edit that one file and every page that uses it (header,
+footer, home hero) updates together. To add a resume, drop the PDF into `public/` and point
+`site.resumeHref` at it.
 
-1. Check `CHANGELOG.md` for what's changed
-2. Copy the updated `.aidlc-rule-details/` folder from the template
-3. Copy to `.kiro/aws-aidlc-rule-details/` as well (keep them in sync)
+## Why HashRouter
 
-## The Three Phases
-
-### 🔵 INCEPTION — Planning & Architecture
-- Workspace Detection (always)
-- Reverse Engineering (brownfield only)
-- Requirements Analysis (always)
-- User Stories (conditional)
-- Workflow Planning (always)
-- Application Design (conditional)
-- Units Generation (conditional)
-
-### 🟢 CONSTRUCTION — Design & Implementation
-- Functional Design (per-unit, conditional)
-- NFR Requirements (per-unit, conditional)
-- NFR Design (per-unit, conditional)
-- Infrastructure Design (per-unit, conditional)
-- Code Generation (per-unit, always)
-- Build and Test (always)
-
-### 🟡 OPERATIONS — Refinement & Deployment
-- UI/UX Refinements (conditional)
-- Screen Content Refinements (conditional)
-- Deployment (placeholder)
-- Monitoring (placeholder)
-
-## Extensions
-
-Optional extensions can be enabled during Requirements Analysis:
-
-- **Security Baseline** — OWASP-aligned security constraints
-- **Resiliency Baseline** — AWS Well-Architected reliability practices
-- **Property-Based Testing** — PBT rules for algorithmic code
-
-## License
-
-MIT — Use freely for your projects.
+GitHub Pages has no server-side rewrites, so a plain client-side router (`BrowserRouter`) breaks
+on any direct link or page refresh to a route like `/vine-to-wine` (GitHub Pages just 404s — there's
+no server to fall back to `index.html`). `HashRouter` (`/#/vine-to-wine`) sidesteps that entirely
+since the hash portion never reaches the server, at the cost of a `#` in the URL. Given this site's
+whole point is being shared as direct links (recruiters, social reposts), reliability won out over
+prettier URLs.

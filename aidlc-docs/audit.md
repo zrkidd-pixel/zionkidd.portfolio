@@ -86,3 +86,19 @@ This file tracks all decisions, user inputs, and AI responses throughout the AI-
 **Context**: Code Generation stage, Part 1 Planning, CONSTRUCTION phase.
 
 ---
+
+## Code Generation Plan Approval
+**Timestamp**: 2026-09-08T02:15:00Z
+**User Input**: "Approved"
+**AI Response**: Plan approved. Beginning Part 2 Generation — executing all 28 steps in sequence.
+**Context**: Transition to Code Generation Part 2, CONSTRUCTION phase.
+
+---
+
+## Code Generation — Generation (Part 2)
+**Timestamp**: 2026-09-08T03:30:00Z
+**User Input**: N/A (system stage)
+**AI Response**: Executed all 28 plan steps. Scaffolded Vite+React+TS app, design token system, shared layout/components, home page, case-study content data (real content sourced from Vine_to_Wine and my-fitness-app repos), reusable case-study template + teaser page, minimal blog, 15 passing tests (vitest), GitHub Actions deploy workflow, and a rewritten project README. Fixed two bugs found during build/test verification: an unescaped apostrophe causing a syntax error in vine-to-wine.ts content, and a vite/vitest Plugin-type conflict resolved by splitting vitest config into its own file. Fixed missing RTL cleanup causing cross-test DOM leakage. Verified: `npm run build` succeeds, `npm test` 15/15 passing, `npm run lint` clean, and manually reviewed in a real browser via Playwright screenshots (home light/dark, case-study page, teaser page, mobile viewport) — design system renders as intended in both themes. Created `aidlc-docs/construction/portfolio-site/code/summary.md`. All plan steps marked [x]. Presenting completion message for approval.
+**Context**: Code Generation stage, Part 2 Generation, CONSTRUCTION phase.
+
+---
