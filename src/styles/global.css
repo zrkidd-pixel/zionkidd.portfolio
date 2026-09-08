@@ -93,6 +93,16 @@ h3 {
   outline-offset: 2px;
 }
 
+.pill-button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.pill-button:disabled:hover {
+  transform: none;
+  opacity: 0.55;
+}
+
 .pill-button--accent {
   background: var(--color-accent);
   color: var(--color-accent-ink);

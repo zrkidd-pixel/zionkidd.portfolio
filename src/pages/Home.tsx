@@ -2,8 +2,9 @@ import { useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { caseStudies } from '../content/case-studies'
 import { comingSoonProject } from '../content/comingSoon'
-import { site, hasResume } from '../content/site'
+import { site, hasResume, hasContactForm } from '../content/site'
 import { ProjectCard } from '../components/ProjectCard'
+import { ContactForm } from '../components/ContactForm'
 import '../styles/home.css'
 
 const PROJECT_MEDIA: Record<string, { video: string; poster: string }> = {
@@ -67,6 +68,8 @@ function useRevealOnce<T extends HTMLElement>() {
 }
 
 const HERO_AUTO_ADVANCE_MS = 6000
+
+const socialLinkEntries = Object.entries(site.links).filter(([, href]) => href.length > 0)
 
 export function Home() {
   const [activeSlug, setActiveSlug] = useState(HERO_SLIDES[0].slug)
@@ -187,10 +190,7 @@ export function Home() {
               className={`hero__copy-col${copyReveal.revealed ? ' hero__copy-col--revealed' : ''}`}
             >
               <p className="hero__bio">{site.siteIntro}</p>
-              <a
-                href={site.contactEmail ? `mailto:${site.contactEmail}` : '#contact'}
-                className={`hero__cta${copyReveal.revealed ? ' hero__cta--revealed' : ''}`}
-              >
+              <a href="#contact" className={`hero__cta${copyReveal.revealed ? ' hero__cta--revealed' : ''}`}>
                 let's talk
               </a>
             </div>
@@ -241,20 +241,17 @@ export function Home() {
             <h2 className="section__title">Contact</h2>
           </div>
           <p className="section__body">
-            {site.contactEmail
-              ? "Best way to reach me is email — I'll get back to you quickly."
-              : 'Contact details coming soon.'}
+            {hasContactForm()
+              ? 'Send a message below, or find me on LinkedIn / GitHub if you’d rather do that.'
+              : 'Contact form coming soon. In the meantime, find me here:'}
           </p>
+          {hasContactForm() ? <ContactForm /> : null}
           <div className="contact__cta-row">
-            {site.contactEmail ? (
-              <a href={`mailto:${site.contactEmail}`} className="pill-button pill-button--accent">
-                Email me
+            {socialLinkEntries.map(([label, href]) => (
+              <a key={label} href={href} target="_blank" rel="noreferrer" className="pill-button pill-button--ghost">
+                {label}
               </a>
-            ) : (
-              <button type="button" className="pill-button pill-button--ghost" disabled title="Email coming soon">
-                Email coming soon
-              </button>
-            )}
+            ))}
             {hasResume() ? (
               <a href={site.resumeHref} download className="pill-button pill-button--ghost">
                 Download resume

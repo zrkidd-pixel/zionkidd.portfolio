@@ -20,6 +20,7 @@
   --color-border: #2a2a2a;
   --color-placeholder-bg: #121212;
   --color-placeholder-border: #3a3428;
+  --color-error: #e08585;
 
   /* Typography */
   --font-display: 'Figtree', system-ui, sans-serif;
@@ -77,4 +78,5 @@
   --color-border: #ddd1bb;
   --color-placeholder-bg: #f2e9d8;
   --color-placeholder-border: #cbb98f;
+  --color-error: #b3413a;
 }

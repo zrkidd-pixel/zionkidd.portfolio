@@ -54,10 +54,11 @@
 - [x] UI/UX Refinements — Hero sub-cycle: approved, merged (PR #6), deployed live
 - [x] UI/UX Refinements — Hero video placeholders sub-task: COMPLETE (all 3 slides have real footage)
 - [x] UI/UX Refinements — Work/project cards sub-task: COMPLETE, shipped to main
+- [x] UI/UX Refinements — Contact section sub-task: implemented, verified, awaiting push
 - [ ] Screen Content Refinements (if applicable)
 
 ## Current Status
 - **Lifecycle Phase**: OPERATIONS
-- **Current Stage**: Hero (3 real videos) and Work section (video-still thumbnails, hover-to-video + overlay, blended Coming Soon card) both live at https://zrkidd-pixel.github.io/zionkidd.portfolio/.
-- **Next Stage**: Continue section-by-section (About, Contact, case-study template — user's choice each time)
-- **Status**: In progress, awaiting user direction on next section
+- **Current Stage**: Hero and Work section live at https://zrkidd-pixel.github.io/zionkidd.portfolio/. Contact section just rebuilt (Web3Forms contact form that keeps the email address out of the page source, social links, "coming soon" fallback until a real access key is added) — implemented and verified locally, not yet pushed.
+- **Next Stage**: Commit + push Contact section; then continue (About, case-study template — user's choice)
+- **Status**: In progress, mid-cycle on Contact section

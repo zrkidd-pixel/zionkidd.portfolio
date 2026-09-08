@@ -15,8 +15,14 @@ export const site = {
     "Welcome, glad you're here. Below are projects I've built and shipped from end to end. Keep scrolling to see my actual thinking behind each of them.",
   // TODO: revisit after MVP — the About section's personal bio
   bio: 'Short bio coming soon. In the meantime: two shipped products are below, with the real thinking behind each one.',
-  // TODO: revisit after MVP
+  // TODO: revisit after MVP — kept for any future use, but the Contact
+  // section deliberately does NOT publish this raw; contact happens via
+  // the Web3Forms form below instead (see web3FormsAccessKey).
   contactEmail: '',
+  // TODO: get a free access key at https://web3forms.com (no account
+  // needed — enter the delivery email, key arrives instantly) and paste
+  // it here. Until then, Contact shows a social-links-only fallback.
+  web3FormsAccessKey: '',
   // TODO: revisit after MVP — leave any entry blank to hide it
   links: {
     linkedin: '',
@@ -29,4 +35,8 @@ export const site = {
 
 export function hasResume(): boolean {
   return site.resumeHref.length > 0
+}
+
+export function hasContactForm(): boolean {
+  return site.web3FormsAccessKey.length > 0
 }
