@@ -214,3 +214,11 @@ This file tracks all decisions, user inputs, and AI responses throughout the AI-
 **Context**: OPERATIONS phase, UI/UX Refinements stage, hero video-placeholder sub-task — first real video slide wired in; two placeholders remain.
 
 ---
+
+## Pushed Directly to Main
+**Timestamp**: 2026-09-08T10:10:00Z
+**User Input**: "Push to main"
+**AI Response**: Confirmed `claude/ai-dlc-operations-redesign-by2k1x` was 3 clean commits ahead of `origin/main` with no divergence, then pushed directly (`git push origin claude/ai-dlc-operations-redesign-by2k1x:main`) rather than opening a PR, per explicit instruction. Fast-forward, no conflicts. Confirmed the `Deploy to GitHub Pages` workflow started on the new main commit (`a0aff13`). Stayed on the feature branch for continued work per the session's standing branch instructions.
+**Context**: OPERATIONS phase, UI/UX Refinements stage. Main now carries the vineyard-video hero update; deploy in progress.
+
+---
