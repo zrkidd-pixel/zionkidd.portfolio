@@ -1,0 +1,37 @@
+{
+    "name": "intent-test-generator",
+    "description": "Discovers behavioral intent from project artifacts (AIDLC docs, specs, source code) and generates comprehensive test suites. Use when adding tests to existing code or bootstrapping coverage from specs.",
+    "prompt": "file://intent-test-generator/prompt.md",
+    "tools": [
+        "read",
+        "write",
+        "code",
+        "grep",
+        "glob",
+        "knowledge"
+    ],
+    "allowedTools": [
+        "read",
+        "write",
+        "code",
+        "grep",
+        "glob",
+        "knowledge"
+    ],
+    "toolsSettings": {
+        "write": {
+            "allowedPaths": [
+                "tests/**",
+                "test/**",
+                "__tests__/**",
+                "**/*.test.ts",
+                "**/*.test.js",
+                "**/*.spec.ts",
+                "**/*.spec.js"
+            ]
+        }
+    },
+    "resources": [
+        "file://~/.kiro/steering/testing-standards.md"
+    ]
+}

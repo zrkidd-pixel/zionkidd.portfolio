@@ -1,0 +1,60 @@
+{
+    "name": "backend-developer",
+    "description": "Backend implementation specialist. Enforces TDD — tests before code. Follows the stack power's architecture patterns. Use after a spec exists.",
+    "prompt": "file://backend-developer/prompt.md",
+    "tools": [
+        "read",
+        "write",
+        "code",
+        "grep",
+        "glob",
+        "shell",
+        "knowledge",
+        "checkpoint",
+        "use_subagent"
+    ],
+    "allowedTools": [
+        "read",
+        "write",
+        "code",
+        "grep",
+        "glob",
+        "shell",
+        "knowledge",
+        "checkpoint",
+        "use_subagent"
+    ],
+    "toolsSettings": {
+        "write": {
+            "allowedPaths": [
+                "src/**",
+                "lib/**",
+                "tests/**",
+                "test/**",
+                "**/*.test.ts",
+                "**/*.test.js",
+                "**/*.spec.ts",
+                "**/*.spec.js"
+            ]
+        },
+        "shell": {
+            "allowedCommands": [
+                "npm test*",
+                "npm run test*",
+                "npm run lint*",
+                "npm run build*",
+                "npx jest*",
+                "python -m pytest*",
+                "go test*",
+                "git log*",
+                "git diff*"
+            ]
+        }
+    },
+    "resources": [
+        "file://~/.kiro/steering/core-standards.md",
+        "file://~/.kiro/steering/backend-standards.md",
+        "file://~/.kiro/steering/testing-standards.md",
+        "file://~/.kiro/steering/security-standards.md"
+    ]
+}

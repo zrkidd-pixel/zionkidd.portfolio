@@ -1,0 +1,39 @@
+{
+    "name": "architect",
+    "description": "Solution design orchestrator. Creates specs before any implementation begins. Simple solutions get one comprehensive spec. Complex solutions get an overview spec plus technical area specs via sub-agents. NEVER writes implementation code.",
+    "prompt": "file://architect/prompt.md",
+    "tools": [
+        "read",
+        "write",
+        "code",
+        "grep",
+        "glob",
+        "knowledge",
+        "web_search",
+        "use_subagent"
+    ],
+    "allowedTools": [
+        "read",
+        "write",
+        "code",
+        "grep",
+        "glob",
+        "knowledge",
+        "web_search",
+        "use_subagent"
+    ],
+    "toolsSettings": {
+        "write": {
+            "allowedPaths": [
+                "docs/**",
+                ".kiro/specs/**",
+                "aidlc-docs/**"
+            ]
+        }
+    },
+    "resources": [
+        "file://architect/templates/spec-template.md",
+        "file://~/.kiro/steering/core-standards.md",
+        "file://~/.kiro/steering/**/*.md"
+    ]
+}

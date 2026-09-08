@@ -1,0 +1,73 @@
+{
+    "name": "agent-name",
+    "description": "One sentence describing this agent's role and when to invoke it. This appears in the agent picker — make it scannable.",
+
+    "prompt": "file://agent-name/prompt.md",
+
+    "tools": [
+        "read",
+        "write",
+        "code",
+        "grep",
+        "glob",
+        "shell",
+        "knowledge",
+        "web_search",
+        "use_subagent",
+        "checkpoint"
+    ],
+
+    "allowedTools": [
+        "read",
+        "write",
+        "code",
+        "grep",
+        "glob",
+        "shell",
+        "knowledge",
+        "web_search",
+        "use_subagent",
+        "checkpoint"
+    ],
+
+    "toolsSettings": {
+        "write": {
+            "allowedPaths": [
+                "docs/**",
+                ".kiro/specs/**"
+            ]
+        },
+        "shell": {
+            "allowedCommands": [
+                "npm test*",
+                "npm run lint*",
+                "git log*",
+                "git diff*"
+            ]
+        }
+    },
+
+    "mcpServers": {
+        "example-mcp-server": {
+            "type": "stdio",
+            "command": "uvx",
+            "args": [
+                "your-mcp-package@latest"
+            ],
+            "env": {
+                "FASTMCP_LOG_LEVEL": "ERROR"
+            },
+            "timeout": 30000,
+            "disabled": false,
+            "autoApprove": [
+                "*"
+            ]
+        }
+    },
+
+    "resources": [
+        "file://agent-name/templates/output-template.md",
+        "file://~/.kiro/steering/core-standards.md",
+        "file://~/.kiro/steering/**/*.md"
+    ]
+}

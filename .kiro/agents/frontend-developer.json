@@ -1,0 +1,63 @@
+{
+    "name": "frontend-developer",
+    "description": "Frontend implementation specialist. Builds UI components following the stack power's framework, design system, and accessibility standards. Enforces mobile-first design and WCAG compliance.",
+    "prompt": "file://frontend-developer/prompt.md",
+    "tools": [
+        "read",
+        "write",
+        "code",
+        "grep",
+        "glob",
+        "shell",
+        "knowledge",
+        "checkpoint",
+        "use_subagent"
+    ],
+    "allowedTools": [
+        "read",
+        "write",
+        "code",
+        "grep",
+        "glob",
+        "shell",
+        "knowledge",
+        "checkpoint",
+        "use_subagent"
+    ],
+    "toolsSettings": {
+        "write": {
+            "allowedPaths": [
+                "src/**",
+                "app/**",
+                "components/**",
+                "pages/**",
+                "views/**",
+                "tests/**",
+                "test/**",
+                "**/*.test.tsx",
+                "**/*.test.ts",
+                "**/*.test.js",
+                "**/*.spec.tsx",
+                "**/*.spec.ts",
+                "**/*.spec.js"
+            ]
+        },
+        "shell": {
+            "allowedCommands": [
+                "npm test*",
+                "npm run test*",
+                "npm run lint*",
+                "npm run build*",
+                "npx jest*",
+                "npx vitest*",
+                "git log*",
+                "git diff*"
+            ]
+        }
+    },
+    "resources": [
+        "file://~/.kiro/steering/core-standards.md",
+        "file://~/.kiro/steering/frontend-standards.md",
+        "file://~/.kiro/steering/testing-standards.md"
+    ]
+}

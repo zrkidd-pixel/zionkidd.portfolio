@@ -1,0 +1,42 @@
+{
+    "name": "reviewer",
+    "description": "Code review and quality validation specialist. Use for standards compliance, security scanning, test coverage validation, and actionable feedback before merging.",
+    "prompt": "file://reviewer/prompt.md",
+    "tools": [
+        "read",
+        "code",
+        "grep",
+        "glob",
+        "shell",
+        "knowledge",
+        "checkpoint"
+    ],
+    "allowedTools": [
+        "read",
+        "code",
+        "grep",
+        "glob",
+        "shell",
+        "knowledge",
+        "checkpoint"
+    ],
+    "toolsSettings": {
+        "shell": {
+            "allowedCommands": [
+                "npm audit*",
+                "npx snyk*",
+                "eslint*",
+                "npx license-checker*",
+                "git log*",
+                "git diff*",
+                "grep -r*"
+            ]
+        }
+    },
+    "resources": [
+        "file://reviewer/checklists/code-review-checklist.md",
+        "file://~/.kiro/steering/core-standards.md",
+        "file://~/.kiro/steering/security-standards.md",
+        "file://~/.kiro/steering/testing-standards.md"
+    ]
+}
