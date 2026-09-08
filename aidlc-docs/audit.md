@@ -366,3 +366,11 @@ This file tracks all decisions, user inputs, and AI responses throughout the AI-
 **Context**: OPERATIONS phase, UI/UX Refinements stage. Contact section sub-task fully complete: designed, mocked, approved, implemented, and now genuinely functional in production.
 
 ---
+
+## LinkedIn Link Added and Shipped
+**Timestamp**: 2026-09-08T12:10:00Z
+**User Input**: "link my linkedin - https://www.linkedin.com/in/zionkidd/" then "Yes" (confirming push to main)
+**AI Response**: Set `site.links.linkedin` in `site.ts`. Automatically propagates to both the footer and the Contact section's social links (both already render any non-empty `site.links` entry). Re-ran lint/test/build — all green. Pushed to branch, then fast-forward to main; `Deploy to GitHub Pages` run #14 started.
+**Context**: OPERATIONS phase, UI/UX Refinements stage, content update — implemented and shipped.
+
+---
