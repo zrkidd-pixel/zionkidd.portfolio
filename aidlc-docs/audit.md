@@ -374,3 +374,11 @@ This file tracks all decisions, user inputs, and AI responses throughout the AI-
 **Context**: OPERATIONS phase, UI/UX Refinements stage, content update — implemented and shipped.
 
 ---
+
+## Hero Text Legibility in Light Mode — Fixed
+**Timestamp**: 2026-09-08T12:15:00Z
+**User Input**: Screenshot of the hero in light mode with "let's fix light mode. the text on the videos is not showing up very well."
+**AI Response**: Real bug, confirmed by inspecting `home.css`: hero switcher/availability/bio/CTA text used the site's theme tokens (`--color-ink`, `--color-accent`, etc.), which correctly flip to dark-on-cream for the rest of the site in light mode — but the hero always sits on a video regardless of theme, so it needs to stay legible against footage, not against the page background. Added a locked `--hero-*` palette (matching the dark-theme values) scoped to `.hero` and swapped every hero-specific color reference from `--color-*` to `--hero-*`. While auditing, found a second, more direct bug causing the same symptom: `.hero__name` (the giant "ZION." text itself, not just the accent period) had no explicit color rule at all — it was inheriting `body`'s theme-dependent ink color the whole time, which only ever matched by coincidence in dark mode. Added the missing `color: var(--hero-ink)`. Also gave `.hero` itself a fixed `background: var(--hero-bg)` so a slow-loading or failed video doesn't leak the page's theme-dependent background through instead. Verified with Playwright screenshots: light mode now shows the same light hero text as dark mode; dark mode confirmed unchanged. Re-ran lint/test/build — all green (19/19 tests).
+**Context**: OPERATIONS phase, UI/UX Refinements stage, bug fix — implemented and verified, not yet pushed.
+
+---
