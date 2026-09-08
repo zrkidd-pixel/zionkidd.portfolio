@@ -270,3 +270,11 @@ This file tracks all decisions, user inputs, and AI responses throughout the AI-
 **Context**: OPERATIONS phase, UI/UX Refinements stage. Work section shipping to main; deploy in progress.
 
 ---
+
+## Hero — Auto-Advancing Video Switcher
+**Timestamp**: 2026-09-08T10:55:00Z
+**User Input**: "I want the top hero section to automatically click through all the videos. Currently it replays the first video unless a user manually selects another. In fact, if a user hovers over another project, the video should switch as well. Does that make sense?"
+**AI Response**: Confirmed hover-to-switch already existed on the hero's own switcher buttons (`onMouseEnter` sets `activeSlug`) — the new piece was auto-advancing on a timer. Implemented: a `setInterval` (6s) cycling `activeSlug` through `HERO_SLIDES` in order, skipped entirely when `prefersReducedMotion` is set (consistent with the rest of the hero's motion handling), paused while hovering/focusing the switcher group (`onMouseEnter`/`onFocus` on the `<ul>`, resumed on `onMouseLeave`/`onBlur` with a `relatedTarget` containment check so tabbing between buttons inside the group doesn't falsely resume). Verified with Playwright: confirmed it advances from slide 1→2 after ~6.5s, stays put while hovered even past the interval, and resumes advancing once the mouse moves away. Re-ran lint/test/build — all green.
+**Context**: OPERATIONS phase, UI/UX Refinements stage, hero follow-up refinement — implemented and verified.
+
+---

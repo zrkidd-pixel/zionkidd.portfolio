@@ -66,8 +66,11 @@ function useRevealOnce<T extends HTMLElement>() {
   return { ref, revealed }
 }
 
+const HERO_AUTO_ADVANCE_MS = 6000
+
 export function Home() {
   const [activeSlug, setActiveSlug] = useState(HERO_SLIDES[0].slug)
+  const [autoAdvancePaused, setAutoAdvancePaused] = useState(false)
   const navigate = useNavigate()
   const location = useLocation()
   const nameReveal = useRevealOnce<HTMLHeadingElement>()
@@ -79,6 +82,20 @@ export function Home() {
     const target = document.getElementById(location.hash.slice(1))
     target?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }, [location.hash])
+
+  useEffect(() => {
+    if (prefersReducedMotion || autoAdvancePaused) return
+
+    const id = window.setInterval(() => {
+      setActiveSlug((current) => {
+        const currentIndex = HERO_SLIDES.findIndex((slide) => slide.slug === current)
+        const nextIndex = (currentIndex + 1) % HERO_SLIDES.length
+        return HERO_SLIDES[nextIndex].slug
+      })
+    }, HERO_AUTO_ADVANCE_MS)
+
+    return () => window.clearInterval(id)
+  }, [autoAdvancePaused, prefersReducedMotion])
 
   return (
     <div>
@@ -114,7 +131,19 @@ export function Home() {
 
         <div className="hero__content">
           <div className="hero__switcher-row">
-            <ul className="hero__switcher" role="group" aria-label="Featured work preview">
+            <ul
+              className="hero__switcher"
+              role="group"
+              aria-label="Featured work preview"
+              onMouseEnter={() => setAutoAdvancePaused(true)}
+              onMouseLeave={() => setAutoAdvancePaused(false)}
+              onFocus={() => setAutoAdvancePaused(true)}
+              onBlur={(event) => {
+                if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+                  setAutoAdvancePaused(false)
+                }
+              }}
+            >
               {HERO_SLIDES.map((slide, index) => (
                 <li key={slide.slug}>
                   <button
