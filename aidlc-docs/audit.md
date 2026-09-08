@@ -350,3 +350,11 @@ This file tracks all decisions, user inputs, and AI responses throughout the AI-
 **Context**: OPERATIONS phase, UI/UX Refinements stage. Contact section shipping to main.
 
 ---
+
+## Web3Forms Access Key Configured
+**Timestamp**: 2026-09-08T12:00:00Z
+**User Input**: "i don't see it on my end.." → screenshot showing the Contact section's fallback state ("Contact form coming soon...") → confirmed that's expected behavior (State 5, no key configured yet) → asked to set up the real key → "can i sign in with my gmail if i want the email to route to a different email?" → "here is the key: 1463f598-f036-48d1-8d63-87d26b43e5c7"
+**AI Response**: Investigated the "not seeing it" report: confirmed via GitHub Actions job logs that both the build and deploy-pages steps completed successfully end-to-end for the Contact section commit — ruled out a broken pipeline or Pages misconfiguration. Explained the screenshot was actually the correct, working fallback state (no Web3Forms key configured yet, exactly as designed and mocked). Corrected earlier inaccurate guidance that Web3Forms needed no account (it now requires sign-in) and confirmed login identity and delivery-email destination are separate settings. Wired the real access key into `site.ts` (`web3FormsAccessKey`), noting these keys are designed to be embedded client-side (submissions POST straight from the browser to Web3Forms) so committing it in plain source is expected/correct, not a leaked secret. Re-ran lint/test/build (19/19 passing) and confirmed the key appears in the built JS bundle.
+**Context**: OPERATIONS phase, UI/UX Refinements stage, Contact section — real contact form now fully functional, not yet pushed.
+
+---

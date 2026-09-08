@@ -19,10 +19,7 @@ export const site = {
   // section deliberately does NOT publish this raw; contact happens via
   // the Web3Forms form below instead (see web3FormsAccessKey).
   contactEmail: '',
-  // TODO: get a free access key at https://web3forms.com (no account
-  // needed — enter the delivery email, key arrives instantly) and paste
-  // it here. Until then, Contact shows a social-links-only fallback.
-  web3FormsAccessKey: '',
+  web3FormsAccessKey: '1463f598-f036-48d1-8d63-87d26b43e5c7',
   // TODO: revisit after MVP — leave any entry blank to hide it
   links: {
     linkedin: '',
