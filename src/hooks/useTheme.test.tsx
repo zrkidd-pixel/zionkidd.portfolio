@@ -21,27 +21,27 @@ describe('useTheme (via ThemeToggle)', () => {
     vi.restoreAllMocks()
   })
 
-  it('defaults to the system preference when no manual choice is stored', () => {
-    mockMatchMedia(true)
+  it('defaults to dark regardless of system preference when no manual choice is stored', () => {
+    mockMatchMedia(false)
     render(<ThemeToggle />)
     expect(document.documentElement.getAttribute('data-theme')).toBe('dark')
     expect(screen.getByTestId('theme-toggle-button')).toHaveTextContent('Light mode')
   })
 
-  it('persists a manual toggle and keeps it across a simulated reload', () => {
-    mockMatchMedia(false)
+  it('persists a manual toggle to light and keeps it across a simulated reload', () => {
+    mockMatchMedia(true)
     const { unmount } = render(<ThemeToggle />)
 
     fireEvent.click(screen.getByTestId('theme-toggle-button'))
-    expect(document.documentElement.getAttribute('data-theme')).toBe('dark')
-    expect(window.localStorage.getItem('zionkidd-portfolio-theme')).toBe('dark')
+    expect(document.documentElement.getAttribute('data-theme')).toBe('light')
+    expect(window.localStorage.getItem('zionkidd-portfolio-theme')).toBe('light')
 
     unmount()
     document.documentElement.removeAttribute('data-theme')
 
-    // Simulated reload: system preference is still light, but the stored
-    // manual choice should win.
+    // Simulated reload: system preference is dark, but the stored manual
+    // choice (light) should still win.
     render(<ThemeToggle />)
-    expect(document.documentElement.getAttribute('data-theme')).toBe('dark')
+    expect(document.documentElement.getAttribute('data-theme')).toBe('light')
   })
 })

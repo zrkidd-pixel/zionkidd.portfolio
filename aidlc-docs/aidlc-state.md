@@ -51,11 +51,11 @@
 - [x] Build and Test — EXECUTE (complete, awaiting user approval)
 
 ### 🟡 OPERATIONS PHASE
-- [~] UI/UX Refinements — IN PROGRESS (hero section revamp, decision-by-decision)
+- [x] UI/UX Refinements — implemented, tested, awaiting final user review (Step 13)
 - [ ] Screen Content Refinements (if applicable)
 
 ## Current Status
 - **Lifecycle Phase**: OPERATIONS
-- **Current Stage**: UI/UX Refinements — hero section revamp, working through design decisions one at a time before building mockup (see `aidlc-docs/operations/plans/ui-ux-refinements-plan.md`)
-- **Next Stage**: Mockup → approval → implementation → commit/push
-- **Status**: In progress
+- **Current Stage**: UI/UX Refinements implementation complete — dark/bold revamp shipped to the feature branch (tokens, Navbar, Hero). Lint/test/build all green; manually verified across breakpoints and themes.
+- **Next Stage**: User review of the live changes → real content still needed (contactEmail, resumeHref, real video footage, real bio) → open a PR when user asks
+- **Status**: Implementation complete, in review

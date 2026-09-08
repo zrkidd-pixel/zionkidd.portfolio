@@ -158,3 +158,19 @@ This file tracks all decisions, user inputs, and AI responses throughout the AI-
 **Context**: OPERATIONS phase, UI/UX Refinements stage, Steps 8-9 (design system + mandatory HTML mockup), awaiting Step 9 approval gate.
 
 ---
+
+## UI/UX Refinements — Mockup Approval
+**Timestamp**: 2026-09-08T08:20:00Z
+**User Input**: "Approved"
+**AI Response**: Mockup approved as-is. Proceeding to Step 10 (implementation plan) and Step 11 (execute implementation) — design system foundation (tokens.css), shared components (Header→Navbar, ThemeToggle), then the Home hero rebuild, then consistency pass across other pages/themes.
+**Context**: OPERATIONS phase, UI/UX Refinements stage, Step 9 approval gate cleared. Moving to Steps 10-11.
+
+---
+
+## UI/UX Refinements — Implementation Complete (Steps 10-12)
+**Timestamp**: 2026-09-08T09:10:00Z
+**User Input**: (none — executing approved plan)
+**AI Response**: Wrote `ui-ux-implementation-plan.md`, then implemented the full revamp: `tokens.css` (dark-default palette, gold/amber accent `#E3A857`, Figtree everywhere, restyled light escape hatch with `#B8791F` accent), `index.html` (Figtree font link, dark-default pre-paint script, `color-scheme: dark light`), `useTheme.ts` (default is now `'dark'` regardless of system preference; test file updated to match), `Header.tsx` replaced by `src/components/layout/Navbar.tsx` (numbered nav, live NYC clock, email, mobile hamburger + expanding panel, theme toggle + resume duplicated into the mobile panel so they're reachable there too — `ThemeToggle` now takes an optional `testId` prop to avoid duplicate test ids), and `Home.tsx`/`home.css` rebuilt with the video-placeholder-crossfade hero (real footage still pending from user), case-study-tied switcher (hover previews, click navigates), "Open to opportunities" pulsing dot, "Zion." name with reveal-on-scroll (IntersectionObserver, real one — added a jsdom stub in `test/setup.ts` since it isn't implemented there), bio + "let's talk" CTA, and new Work/About/Contact sections anchored for the nav. Cross-page anchor links (e.g. clicking "About" from a case-study page) navigate home and scroll into view via a `location.hash` effect. Found and fixed two real bugs during manual verification (Playwright screenshots at desktop/tablet/mobile): (1) a leftover negative margin on `.hero` from the old layout caused ~24px horizontal overflow on every breakpoint — removed; (2) the theme toggle and resume link were completely unreachable on mobile because the desktop utility cluster is `display:none` under 810px and I'd forgotten to duplicate it into the mobile panel — fixed. Re-ran `npm run lint` (clean), `npm run test` (15/15 pass), and `npm run build` (succeeds) after every change. Verified visually: hero at desktop/tablet/mobile widths, mobile menu open state, light-theme toggle, a case-study page (confirms the "consistency pass" — inherits the new palette/type with no page-specific edits needed, as predicted since none of `case-study.css`/`blog.css` hardcode colors or fonts), cross-page anchor scrolling, and switcher hover-preview + click-to-case-study navigation. All working as designed.
+**Context**: OPERATIONS phase, UI/UX Refinements stage, Steps 10-12 complete. Presenting completion message with screenshots — awaiting Step 13 approval before/alongside commit.
+
+---
