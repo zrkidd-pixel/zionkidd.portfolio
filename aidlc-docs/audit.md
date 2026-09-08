@@ -70,3 +70,19 @@ This file tracks all decisions, user inputs, and AI responses throughout the AI-
 **Context**: Workflow Planning stage, INCEPTION phase. Presenting plan for approval.
 
 ---
+
+## Workflow Planning Approval
+**Timestamp**: 2026-09-08T02:00:00Z
+**User Input**: "Approved"
+**AI Response**: Execution plan approved. INCEPTION phase complete. Proceeding to CONSTRUCTION phase — Code Generation (single unit, per-unit design stages skipped per approved plan).
+**Context**: Transition from Workflow Planning to Code Generation, INCEPTION → CONSTRUCTION phase boundary.
+
+---
+
+## Code Generation — Planning (Part 1)
+**Timestamp**: 2026-09-08T02:10:00Z
+**User Input**: N/A (system stage)
+**AI Response**: Created `aidlc-docs/construction/plans/portfolio-site-code-generation-plan.md` — 28 numbered steps covering project scaffold, design tokens, shared layout/components, home page, case-study content data (sourced from Vine_to_Wine and my-fitness-app repos), case-study/teaser page templates, blog, tests, and GitHub Actions deployment. Documented 4 low-risk implementation decisions made directly here (HashRouter for reliable GH Pages deep links, plain CSS custom properties, localStorage+system-preference dark mode, provider-agnostic analytics wrapper). Full story traceability table included (US-1 through US-13). Presenting plan for approval before generation.
+**Context**: Code Generation stage, Part 1 Planning, CONSTRUCTION phase.
+
+---
