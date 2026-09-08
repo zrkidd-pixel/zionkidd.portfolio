@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
-import { Header } from './components/layout/Header'
+import { Navbar } from './components/layout/Navbar'
 import { Footer } from './components/layout/Footer'
 import { Home } from './pages/Home'
 import { CaseStudy } from './pages/CaseStudy'
@@ -23,7 +23,7 @@ export default function App() {
   return (
     <>
       <AnalyticsListener />
-      <Header />
+      <Navbar />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />

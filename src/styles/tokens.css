@@ -1,29 +1,30 @@
 /*
-  Design system tokens — "editorial agency-poster" direction.
-  Light theme lives on :root; dark theme overrides via [data-theme="dark"]
-  and a prefers-color-scheme fallback for visitors who haven't set an
-  explicit override yet (see src/hooks/useTheme.ts).
+  Design system tokens — "dark/bold" direction (2026 revamp).
+  Dark lives on :root as the default; light is a restyled escape hatch via
+  [data-theme="light"] and a prefers-color-scheme fallback for visitors who
+  haven't set an explicit override yet (see src/hooks/useTheme.ts).
 */
 
 :root {
-  /* Color: light (default) */
-  --color-bg: #f5f1e8;
-  --color-bg-alt: #ece4d3;
-  --color-surface: #ffffff;
-  --color-ink: #1a1614;
-  --color-ink-soft: #554d47;
-  --color-ink-faint: #8a8078;
-  --color-accent: #7a1f2b;
-  --color-accent-ink: #ffffff;
-  --color-accent-soft: #e9d3d5;
-  --color-border: #ddd1bb;
-  --color-placeholder-bg: #f2e9d8;
-  --color-placeholder-border: #cbb98f;
+  /* Color: dark (default) */
+  --color-bg: #050505;
+  --color-bg-alt: #0f0f0f;
+  --color-surface: #121212;
+  --color-ink: #f5f5f0;
+  --color-ink-soft: #b5b3ad;
+  --color-ink-faint: #78766f;
+  --color-accent: #e3a857;
+  --color-accent-hover: #edbb74;
+  --color-accent-ink: #111111;
+  --color-accent-soft: rgba(227, 168, 87, 0.22);
+  --color-border: #2a2a2a;
+  --color-placeholder-bg: #121212;
+  --color-placeholder-border: #3a3428;
 
   /* Typography */
-  --font-display: 'Archivo', 'Arial Narrow', sans-serif;
-  --font-accent: 'Fraunces', 'Georgia', serif;
-  --font-body: 'Inter', system-ui, sans-serif;
+  --font-display: 'Figtree', system-ui, sans-serif;
+  --font-accent: 'Figtree', system-ui, sans-serif;
+  --font-body: 'Figtree', system-ui, sans-serif;
 
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
@@ -32,6 +33,10 @@
   --text-xl: 1.75rem;
   --text-2xl: 2.5rem;
   --text-3xl: 3.5rem;
+
+  /* Hero name scale (desktop / tablet / mobile via clamp) */
+  --text-hero: clamp(68px, 15vw + 20px, 200px);
+  --tracking-hero: -6px;
 
   --tracking-caps: 0.12em;
 
@@ -45,43 +50,31 @@
   --space-12: 3rem;
   --space-16: 4rem;
   --space-24: 6rem;
+  --space-32: 8rem;
 
   /* Shape / effects */
   --radius-pill: 999px;
-  --radius-card: 1.25rem;
-  --radius-photo: 2.5rem 2.5rem 0.75rem 0.75rem;
+  --radius-card: 1rem;
+  --radius-photo: 1.5rem 1.5rem 0.5rem 0.5rem;
   --rule-weight: 1px;
   --max-width: 72rem;
+
+  /* Motion */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) {
-    --color-bg: #16120f;
-    --color-bg-alt: #201a15;
-    --color-surface: #241d18;
-    --color-ink: #f5f1e8;
-    --color-ink-soft: #cdc3b8;
-    --color-ink-faint: #948a7f;
-    --color-accent: #e2828d;
-    --color-accent-ink: #1a1614;
-    --color-accent-soft: #3a2226;
-    --color-border: #3a3128;
-    --color-placeholder-bg: #241d18;
-    --color-placeholder-border: #574a34;
-  }
-}
-
-:root[data-theme='dark'] {
-  --color-bg: #16120f;
-  --color-bg-alt: #201a15;
-  --color-surface: #241d18;
-  --color-ink: #f5f1e8;
-  --color-ink-soft: #cdc3b8;
-  --color-ink-faint: #948a7f;
-  --color-accent: #e2828d;
-  --color-accent-ink: #1a1614;
-  --color-accent-soft: #3a2226;
-  --color-border: #3a3128;
-  --color-placeholder-bg: #241d18;
-  --color-placeholder-border: #574a34;
+:root[data-theme='light'] {
+  --color-bg: #f5f1e8;
+  --color-bg-alt: #ece4d3;
+  --color-surface: #ffffff;
+  --color-ink: #1a1614;
+  --color-ink-soft: #554d47;
+  --color-ink-faint: #8a8078;
+  --color-accent: #b8791f;
+  --color-accent-hover: #9c6519;
+  --color-accent-ink: #ffffff;
+  --color-accent-soft: rgba(184, 121, 31, 0.14);
+  --color-border: #ddd1bb;
+  --color-placeholder-bg: #f2e9d8;
+  --color-placeholder-border: #cbb98f;
 }

@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Zion Kidd — Hero Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #050505;
+    --surface: #121212;
+    --border: #2a2a2a;
+    --text: #f5f5f0;
+    --text-secondary: #b5b3ad;
+    --text-faint: #78766f;
+    --accent: #E3A857;
+    --accent-hover: #EDBB74;
+    --accent-ink: #111111;
+    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Figtree', system-ui, sans-serif;
+    height: 100%;
+  }
+
+  .hero-screen {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 640px;
+    overflow: hidden;
+  }
+
+  /* ---- Video placeholder crossfade (real footage swaps in at implementation) ---- */
+  .video-layer {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1200ms ease-in-out;
+    background-size: 200% 200%;
+    animation: driftGradient 14s ease-in-out infinite;
+  }
+  .video-layer.active { opacity: 1; z-index: 1; }
+  .video-layer[data-slide="0"] { background-image: radial-gradient(circle at 30% 30%, #3a2f14, #050505 65%); }
+  .video-layer[data-slide="1"] { background-image: radial-gradient(circle at 70% 40%, #2a2416, #050505 65%); }
+  .video-layer[data-slide="2"] { background-image: radial-gradient(circle at 50% 70%, #241f12, #050505 65%); }
+  @keyframes driftGradient {
+    0%, 100% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+  }
+  .video-placeholder-label {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    z-index: 3;
+    font-size: 11px;
+    color: var(--text-faint);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.10); z-index: 1; }
+
+  /* ---- Navbar ---- */
+  nav.site-nav {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1340px;
+    margin: 0 auto;
+    padding: 36px 15px;
+  }
+  .nav-links { display: flex; gap: 32px; list-style: none; margin: 0; padding: 0; }
+  .nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    position: relative;
+  }
+  .nav-links .idx {
+    font-size: 8px;
+    line-height: 12px;
+    letter-spacing: -0.08px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+  .nav-links .label {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.12px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  .nav-links .label::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: -3px;
+    height: 1px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 320ms var(--ease-spring);
+  }
+  .nav-links a:hover .label::after { transform: scaleX(1); transform-origin: left; }
+
+  .nav-right { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+  .nav-right .email { font-size: 12px; color: var(--text-secondary); }
+  .nav-right .clock { font-size: 12px; color: var(--text-faint); font-variant-numeric: tabular-nums; }
+
+  .nav-toggle { display: none; background: none; border: none; color: var(--text); cursor: pointer; padding: 4px; }
+
+  /* ---- Hero content ---- */
+  main.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1340px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: stretch;
+    gap: 150px;
+    padding: 190px 15px 60px;
+  }
+
+  .switcher-row { display: flex; gap: 32px; align-items: flex-start; }
+  .switcher-col { flex: 4; display: flex; gap: 28px; flex-wrap: wrap; }
+  .switcher-btn {
+    background: none;
+    border: none;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: -0.1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    opacity: 0.55;
+    transition: opacity 200ms ease, transform 200ms var(--ease-spring);
+    padding: 0;
+    position: relative;
+  }
+  .switcher-btn:hover { opacity: 0.75; transform: translateX(4px); }
+  .switcher-btn.active { opacity: 1; }
+  .switcher-btn .view-link {
+    display: block;
+    font-size: 10px;
+    color: var(--accent);
+    margin-top: 4px;
+    opacity: 0;
+    transition: opacity 200ms ease;
+  }
+  .switcher-btn.active .view-link { opacity: 1; }
+
+  .availability-col { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 10px; }
+  .dot {
+    width: 7px; height: 7px; border-radius: 999px;
+    background: var(--accent);
+    box-shadow: 0 0 0 0 rgba(227, 168, 87, 0.6);
+    animation: dotPulse 1.6s infinite;
+  }
+  @keyframes dotPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.45; transform: scale(1.45); }
+  }
+  .availability-label { font-size: 12px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.04em; }
+
+  .bottom-row { display: flex; align-items: flex-end; gap: 48px; }
+  .name-col { flex: 2; }
+  .hero-name {
+    font-size: 200px;
+    line-height: 81%;
+    letter-spacing: -6px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(80px);
+  }
+  .hero-name.revealed {
+    animation: revealUp 900ms var(--ease-spring) forwards;
+  }
+  .hero-name .accent-dot { color: var(--accent); }
+  @keyframes revealUp {
+    from { opacity: 0; transform: translateY(80px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .copy-col { flex: 1; padding-left: 50px; opacity: 0; transform: translateX(100px); }
+  .copy-col.revealed { animation: revealRight 900ms var(--ease-spring) forwards; }
+  .copy-col p {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.16px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin: 0 0 20px;
+  }
+  @keyframes revealRight {
+    from { opacity: 0; transform: translateX(100px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .cta-button {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    background: transparent;
+    border: 1px solid var(--text);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 13px;
+    text-transform: lowercase;
+    padding: 14px 28px;
+    border-radius: 999px;
+    cursor: pointer;
+    z-index: 1;
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  .cta-button.revealed {
+    animation: revealRight 900ms var(--ease-spring) 80ms forwards;
+  }
+  .cta-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--accent);
+    transform: translateY(101%);
+    transition: transform 320ms var(--ease-spring);
+    z-index: -1;
+  }
+  .cta-button:hover { border-color: var(--accent); color: var(--accent-ink); }
+  .cta-button:hover::before { transform: translateY(0); }
+
+  /* ---- Mobile menu ---- */
+  .mobile-panel {
+    display: none;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 420ms var(--ease-spring);
+    overflow: hidden;
+  }
+  .mobile-panel.open { grid-template-rows: 1fr; }
+  .mobile-panel > div { overflow: hidden; }
+  .mobile-panel ul { list-style: none; margin: 0; padding: 24px 18px; display: flex; flex-direction: column; gap: 20px; }
+  .mobile-panel a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 28px;
+    line-height: 32px;
+    letter-spacing: -0.84px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* ---- Tablet ---- */
+  @media (min-width: 810px) and (max-width: 1199.98px) {
+    nav.site-nav { padding: 30px 18px; }
+    .nav-links { gap: 16px; }
+    .hero-name { font-size: 129.6px; line-height: 113.4px; letter-spacing: -7.7px; }
+    main.hero-content { gap: 28px; padding-bottom: 52px; }
+    .copy-col { padding-left: 24px; }
+  }
+
+  /* ---- Mobile ---- */
+  @media (max-width: 809.98px) {
+    nav.site-nav { padding: 24px 18px; }
+    .nav-links { display: none; }
+    .nav-toggle { display: block; }
+    .mobile-panel { display: grid; }
+    main.hero-content {
+      justify-content: flex-end;
+      align-items: flex-start;
+      gap: 72px;
+      padding: 140px 18px 0;
+    }
+    .switcher-row { flex-direction: column; gap: 28px; }
+    .availability-col { justify-content: flex-start; }
+    .bottom-row { flex-direction: column; align-items: flex-start; gap: 32px; padding-bottom: 44px; }
+    .hero-name { font-size: clamp(68px, 21vw, 80px); line-height: 96px; letter-spacing: -4.8px; }
+    .copy-col { padding-left: 0; max-width: 420px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      transition-duration: 0.001ms !important;
+    }
+    .hero-name, .copy-col, .cta-button { opacity: 1 !important; transform: none !important; }
+  }
+
+  .mockup-note {
+    max-width: 1340px;
+    margin: 24px auto;
+    padding: 0 15px;
+    font-size: 13px;
+    color: var(--text-faint);
+    font-family: system-ui, sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<section class="hero-screen" aria-label="Hero">
+  <div class="video-layer active" data-slide="0" aria-hidden="true"></div>
+  <div class="video-layer" data-slide="1" aria-hidden="true"></div>
+  <div class="video-layer" data-slide="2" aria-hidden="true"></div>
+  <span class="video-placeholder-label">video placeholder — real footage swapped in at implementation</span>
+  <div class="overlay"></div>
+
+  <header>
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#work"><span class="idx">01</span><span class="label">Work</span></a></li>
+        <li><a href="#blog"><span class="idx">02</span><span class="label">Blog</span></a></li>
+        <li><a href="#about"><span class="idx">03</span><span class="label">About</span></a></li>
+        <li><a href="#contact"><span class="idx">04</span><span class="label">Contact</span></a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" id="navToggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <div class="nav-right">
+        <span class="email">z.r.kidd@gmail.com</span>
+        <span class="clock" id="clock">NYC --:--:--</span>
+      </div>
+    </nav>
+    <div class="mobile-panel" id="mobilePanel">
+      <div>
+        <ul>
+          <li><a href="#work">01 / Work</a></li>
+          <li><a href="#blog">02 / Blog</a></li>
+          <li><a href="#about">03 / About</a></li>
+          <li><a href="#contact">04 / Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="hero-content">
+    <div class="switcher-row">
+      <div class="switcher-col" id="switcher" role="group" aria-label="Featured work preview">
+        <button class="switcher-btn active" data-slide="0">01 / Vine to Wine<span class="view-link">view project →</span></button>
+        <button class="switcher-btn" data-slide="1">02 / Fitness App<span class="view-link">view project →</span></button>
+        <button class="switcher-btn" data-slide="2">03 / Next Project<span class="view-link">view project →</span></button>
+      </div>
+      <div class="availability-col" role="status" aria-label="Availability">
+        <span class="dot"></span>
+        <span class="availability-label">Open to opportunities</span>
+      </div>
+    </div>
+
+    <div class="bottom-row">
+      <div class="name-col">
+        <h1 class="hero-name" id="heroName">Zion<span class="accent-dot">.</span></h1>
+      </div>
+      <div class="copy-col" id="copyCol">
+        <p>I build products end to end — from idea to shipped, working code. Two case studies below show the thinking and the tradeoffs.</p>
+        <button class="cta-button" id="ctaBtn">let's talk</button>
+      </div>
+    </div>
+  </main>
+</section>
+
+<p class="mockup-note">
+  Mockup notes: background panels are animated placeholder gradients standing in for the real per-project video clips
+  (Decision 2/8) — swap in actual footage at implementation. Hover a switcher item to preview its slide; click simulates
+  navigating to that case study (no real routing in this static mockup). Clock reads live New York time. Resize the
+  window to see tablet (810–1199px) and mobile (&lt;810px) breakpoints, including the hamburger menu.
+</p>
+
+<script>
+  // Live NYC clock
+  function tick() {
+    const now = new Date();
+    const parts = new Intl.DateTimeFormat('en-GB', {
+      timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
+    }).formatToParts(now);
+    const get = (t) => parts.find(p => p.type === t)?.value ?? '--';
+    document.getElementById('clock').textContent = `NYC ${get('hour')}:${get('minute')}:${get('second')}`;
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  // Video/switcher crossfade
+  const layers = document.querySelectorAll('.video-layer');
+  const buttons = document.querySelectorAll('.switcher-btn');
+  function setActive(slide) {
+    layers.forEach(l => l.classList.toggle('active', l.dataset.slide === slide));
+    buttons.forEach(b => b.classList.toggle('active', b.dataset.slide === slide));
+  }
+  buttons.forEach(btn => {
+    btn.addEventListener('mouseenter', () => setActive(btn.dataset.slide));
+    btn.addEventListener('click', () => {
+      setActive(btn.dataset.slide);
+      alert('In the real site, this navigates to the ' + btn.textContent.replace('view project →','').trim() + ' case study.');
+    });
+  });
+
+  // Mobile menu toggle
+  const navToggle = document.getElementById('navToggle');
+  const mobilePanel = document.getElementById('mobilePanel');
+  navToggle.addEventListener('click', () => {
+    const open = mobilePanel.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(open));
+  });
+
+  // Reveal-on-load (mockup: hero is already in view, so trigger shortly after paint)
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      document.getElementById('heroName').classList.add('revealed');
+      document.getElementById('copyCol').classList.add('revealed');
+      document.getElementById('ctaBtn').classList.add('revealed');
+    }, 80);
+  });
+</script>
+
+</body>
+</html>

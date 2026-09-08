@@ -14,7 +14,7 @@ function renderAt(path: string) {
 describe('App routing', () => {
   it('resolves the home page', () => {
     renderAt('/')
-    expect(screen.getByText(/I build products end to end/)).toBeInTheDocument()
+    expect(screen.getByTestId('hero-name')).toHaveTextContent('Zion.')
   })
 
   it('resolves a real case-study route', () => {
@@ -47,6 +47,6 @@ describe('App routing', () => {
 
   it('falls back to home for an unknown project slug', () => {
     renderAt('/not-a-real-project')
-    expect(screen.getByText(/I build products end to end/)).toBeInTheDocument()
+    expect(screen.getByTestId('hero-name')).toHaveTextContent('Zion.')
   })
 })

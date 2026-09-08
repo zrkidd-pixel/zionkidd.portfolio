@@ -37,7 +37,7 @@ h1,
 h2,
 h3 {
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1.05;
   margin: 0;
   letter-spacing: -0.01em;
@@ -56,13 +56,6 @@ h3 {
   letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
   color: var(--color-ink-faint);
-}
-
-.accent-word {
-  font-family: var(--font-accent);
-  font-style: italic;
-  font-weight: 500;
-  color: var(--color-accent);
 }
 
 .rule {
@@ -137,7 +130,7 @@ h3 {
 
 .stat-numeral {
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 600;
   font-size: var(--text-2xl);
   color: var(--color-ink);
   line-height: 1;

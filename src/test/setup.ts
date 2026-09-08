@@ -24,3 +24,22 @@ if (!window.matchMedia) {
     dispatchEvent: () => false,
   })) as unknown as typeof window.matchMedia
 }
+
+// jsdom doesn't implement IntersectionObserver — the Home hero's reveal
+// animation uses one, so stub a no-op version (nothing is asserted about
+// reveal timing in tests, just that the component renders).
+if (!window.IntersectionObserver) {
+  class MockIntersectionObserver {
+    readonly root: Element | Document | null = null
+    readonly rootMargin: string = ''
+    readonly scrollMargin: string = ''
+    readonly thresholds: ReadonlyArray<number> = []
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+    takeRecords(): IntersectionObserverEntry[] {
+      return []
+    }
+  }
+  window.IntersectionObserver = MockIntersectionObserver as unknown as typeof IntersectionObserver
+}

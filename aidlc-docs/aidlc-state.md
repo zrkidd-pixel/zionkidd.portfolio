@@ -51,11 +51,11 @@
 - [x] Build and Test — EXECUTE (complete, awaiting user approval)
 
 ### 🟡 OPERATIONS PHASE
-- [ ] UI/UX Refinements (if applicable)
+- [x] UI/UX Refinements — implemented, tested, awaiting final user review (Step 13)
 - [ ] Screen Content Refinements (if applicable)
 
 ## Current Status
 - **Lifecycle Phase**: OPERATIONS
-- **Current Stage**: CONSTRUCTION complete and approved. Awaiting user direction on Operations (UI/UX Refinements)
-- **Next Stage**: UI/UX Refinements (conditional — trigger when user supplies real bio/photo/resume or design feedback), or Deployment (one manual GitHub Settings step remains — see README.md)
-- **Status**: MVP complete and pushed
+- **Current Stage**: UI/UX Refinements implementation complete — dark/bold revamp shipped to the feature branch (tokens, Navbar, Hero). Lint/test/build all green; manually verified across breakpoints and themes.
+- **Next Stage**: User review of the live changes → real content still needed (contactEmail, resumeHref, real video footage, real bio) → open a PR when user asks
+- **Status**: Implementation complete, in review
