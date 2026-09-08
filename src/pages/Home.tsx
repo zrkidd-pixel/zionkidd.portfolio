@@ -7,10 +7,25 @@ import { ProjectCard } from '../components/ProjectCard'
 import '../styles/home.css'
 
 const HERO_SLIDES = [
-  { slug: caseStudies[0].slug, label: caseStudies[0].name },
-  { slug: caseStudies[1].slug, label: caseStudies[1].name },
-  { slug: comingSoonProject.slug, label: comingSoonProject.name },
+  { slug: caseStudies[0].slug, label: caseStudies[0].name, video: `${import.meta.env.BASE_URL}videos/vine-to-wine.mp4` },
+  { slug: caseStudies[1].slug, label: caseStudies[1].name, video: undefined as string | undefined },
+  { slug: comingSoonProject.slug, label: comingSoonProject.name, video: undefined as string | undefined },
 ]
+
+function usePrefersReducedMotion() {
+  const [reduced, setReduced] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches,
+  )
+
+  useEffect(() => {
+    const query = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const listener = () => setReduced(query.matches)
+    query.addEventListener('change', listener)
+    return () => query.removeEventListener('change', listener)
+  }, [])
+
+  return reduced
+}
 
 function useRevealOnce<T extends HTMLElement>() {
   const ref = useRef<T | null>(null)
@@ -42,6 +57,7 @@ export function Home() {
   const location = useLocation()
   const nameReveal = useRevealOnce<HTMLHeadingElement>()
   const copyReveal = useRevealOnce<HTMLDivElement>()
+  const prefersReducedMotion = usePrefersReducedMotion()
 
   useEffect(() => {
     if (!location.hash) return
@@ -53,16 +69,31 @@ export function Home() {
     <div>
       <section className="hero" aria-label="Intro">
         <div className="hero__media" aria-hidden="true">
-          {HERO_SLIDES.map((slide) => (
-            <div
-              key={slide.slug}
-              className={`hero__video-layer${slide.slug === activeSlug ? ' hero__video-layer--active' : ''}`}
-              data-slide={slide.slug}
-            />
-          ))}
-          <span className="hero__video-placeholder-note">
-            Video placeholder — real footage swaps in once available
-          </span>
+          {HERO_SLIDES.map((slide) =>
+            slide.video ? (
+              <video
+                key={slide.slug}
+                className={`hero__video-layer hero__video-layer--real${slide.slug === activeSlug ? ' hero__video-layer--active' : ''}`}
+                data-slide={slide.slug}
+                src={slide.video}
+                autoPlay={!prefersReducedMotion}
+                loop={!prefersReducedMotion}
+                muted
+                playsInline
+              />
+            ) : (
+              <div
+                key={slide.slug}
+                className={`hero__video-layer${slide.slug === activeSlug ? ' hero__video-layer--active' : ''}`}
+                data-slide={slide.slug}
+              />
+            ),
+          )}
+          {HERO_SLIDES.some((slide) => !slide.video) ? (
+            <span className="hero__video-placeholder-note">
+              Some slides are placeholder gradients — real footage swaps in as it's sourced
+            </span>
+          ) : null}
         </div>
         <div className="hero__overlay" aria-hidden="true" />
 

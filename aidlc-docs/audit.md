@@ -206,3 +206,11 @@ This file tracks all decisions, user inputs, and AI responses throughout the AI-
 **Context**: OPERATIONS phase, UI/UX Refinements stage. Hero sub-cycle fully closed (approved, implemented, merged, deployed). Branch reset to track main correctly for the next section (hero video placeholders sourcing, currently waiting on user to supply a video file).
 
 ---
+
+## Hero Video — Vine to Wine Slide Wired In
+**Timestamp**: 2026-09-08T10:05:00Z
+**User Input**: Uploaded a video file (`423e1dc8-853754hd_1920_1080_25fps.mp4` — the Pexels grape-vineyard clip from the shared shortlist).
+**AI Response**: Placed the file at `public/videos/vine-to-wine.mp4` (static asset, served verbatim, base-path-safe via `import.meta.env.BASE_URL`). Updated `Home.tsx`: the Vine to Wine slide now renders a real `<video autoPlay muted loop playsInline>` instead of the gradient placeholder; the other two slides remain placeholders until their footage is sourced; the placeholder note only shows while at least one slide still lacks real footage. Added `usePrefersReducedMotion()` so the real video respects `prefers-reduced-motion` (no autoplay/loop when set) — the gradient placeholders were already exempt via CSS, but an actual autoplaying video needed the same courtesy in JS since attributes can't be conditioned via CSS alone. Verified the file itself with `ffprobe` (installed via apt for this check) — standard H.264 High Profile, 1920x1080, 25fps, 14.16s, no audio, `probe_score=100`: a completely valid, universally-playable web video. Could NOT visually confirm playback in this session's own Playwright/headless-Chromium: that specific browser build reports empty `canPlayType()` for all H.264 codec strings and, when tested, also failed to decode a from-scratch VP9/WebM re-encode of the same clip — pointing to this sandboxed browser lacking video decode capability entirely (an open-source Chromium build without proprietary codecs, likely also missing software video decode), not a problem with the file or the implementation. Documented this limitation transparently rather than claiming visual verification that didn't happen. Re-ran lint/test/build — all green.
+**Context**: OPERATIONS phase, UI/UX Refinements stage, hero video-placeholder sub-task — first real video slide wired in; two placeholders remain.
+
+---
