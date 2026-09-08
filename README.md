@@ -1,17 +1,29 @@
 # Zion Kidd — Portfolio
 
-Personal portfolio site: case studies for shipped projects (Vine to Wine, My Fitness App), a
-"coming soon" placeholder for a wine society logo rebrand, a small blog, and a dark-mode-aware
-editorial design system.
+Personal portfolio site. Two shipped-project case studies, one "coming soon" design project, a
+small blog, and an editorial design system built to hold up in both light and dark mode.
 
-Live at: https://zrkidd-pixel.github.io/zionkidd.portfolio/
+**Live**: https://zrkidd-pixel.github.io/zionkidd.portfolio/
+_(live once the one-time deployment setting below is set — see "Deploying")_
+
+## What's on it
+
+| Project | What it is |
+|---|---|
+| [Vine to Wine](src/content/case-studies/vine-to-wine.ts) | A cross-platform app that teaches wine varietals, regions, and tasting notes through flashcards, quizzes, and games. |
+| [My Fitness App](src/content/case-studies/my-fitness-app.ts) | A local-first fitness tracker for lifters — training, AI-assisted nutrition logging, and body-composition progress, with zero accounts. |
+| Wine Society Rebrand | A new brand identity for a wine society — logo, mark, visual system. Case study coming soon. |
+
+Each case study follows the same structure: one-line summary, the problem, target user,
+competitors, insight, and the solution (including what was deliberately *not* built) — plus bonus
+sections for distribution, feedback, impact, and real quotes where available.
 
 ## Stack
 
-- React + TypeScript + Vite
+- React 19 + TypeScript + Vite
 - React Router (`HashRouter` — deliberate, see below)
 - Plain CSS with custom-property design tokens (no framework)
-- Vitest + React Testing Library
+- Vitest + React Testing Library (15 tests)
 - Deployed to GitHub Pages via GitHub Actions
 
 ## Getting Started
@@ -24,28 +36,28 @@ npm run build     # production build to dist/
 npm run preview   # preview the production build locally
 ```
 
-## One-time repo setting required for deployment
+## Deploying
 
-This repo's `.github/workflows/deploy.yml` deploys via GitHub Actions, which requires the
-repository's **Settings → Pages → Source** to be set to **"GitHub Actions"** (not "Deploy from a
-branch"). This is a one-time manual step in the GitHub UI — it isn't something a workflow file or
-git push can set on its own.
+The workflow in `.github/workflows/deploy.yml` builds, tests, and deploys to GitHub Pages on every
+push to `main`. It requires one **one-time manual setting**: repo **Settings → Pages → Source**
+must be set to **"GitHub Actions"** (not "Deploy from a branch"). This can't be set from a workflow
+file or a git push — it's a GitHub UI setting.
 
 ## Project Structure
 
 ```
 src/
-├── components/         # Shared UI: Header, Footer, ProjectCard, CaseStudyLayout, etc.
-├── content/            # All editable content lives here — see below
-│   ├── site.ts         # Name/bio/contact/resume — the placeholders to fill in post-MVP
+├── components/          # Shared UI: Header, Footer, ProjectCard, CaseStudyLayout, etc.
+├── content/             # All editable content lives here — see below
+│   ├── site.ts          # Name/bio/contact/resume — the placeholders to fill in post-MVP
 │   ├── types.ts         # Shared CaseStudy shape
 │   ├── case-studies/    # One file per full case study
 │   ├── comingSoon.ts    # The "Coming Soon" project card + teaser page content
 │   └── posts.ts         # Blog posts
 ├── hooks/useTheme.ts    # Dark/light mode (system-default, manual override persisted)
 ├── lib/analytics.ts     # Pageview tracking (GoatCounter — add your site code to activate)
-├── pages/               # Route-level components
-└── styles/              # tokens.css (design system) + global.css + per-area stylesheets
+├── pages/                # Route-level components
+└── styles/               # tokens.css (design system) + global.css + per-area stylesheets
 ```
 
 ## Adding a new case study later
@@ -69,6 +81,10 @@ contact email, social links, resume file). Edit that one file and every page tha
 footer, home hero) updates together. To add a resume, drop the PDF into `public/` and point
 `site.resumeHref` at it.
 
+The case studies also carry placeholders of their own — each project's `insight`, `quotes`,
+`distribution`, `feedback`, and `impact` fields are wrapped in `placeholder('...')` until real
+stories/numbers exist. Search for `placeholder(` in `src/content/case-studies/` to find them.
+
 ## Why HashRouter
 
 GitHub Pages has no server-side rewrites, so a plain client-side router (`BrowserRouter`) breaks
@@ -77,3 +93,9 @@ no server to fall back to `index.html`). `HashRouter` (`/#/vine-to-wine`) sidest
 since the hash portion never reaches the server, at the cost of a `#` in the URL. Given this site's
 whole point is being shared as direct links (recruiters, social reposts), reliability won out over
 prettier URLs.
+
+## AI-DLC
+
+This project was built using the [AI-DLC](https://github.com/zrkidd-pixel/ai-dlc-template)
+workflow — see `aidlc-docs/` for the full requirements, user stories, and design decisions behind
+this build.
