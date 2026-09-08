@@ -382,3 +382,11 @@ This file tracks all decisions, user inputs, and AI responses throughout the AI-
 **Context**: OPERATIONS phase, UI/UX Refinements stage, bug fix — implemented and verified, not yet pushed.
 
 ---
+
+## Pushed Light-Mode Hero Fix to Main
+**Timestamp**: 2026-09-08T12:20:00Z
+**User Input**: "Yes" (confirming push to main)
+**AI Response**: Clean fast-forward, pushed directly to main. `Deploy to GitHub Pages` run #15 started on the new commit (9f94add).
+**Context**: OPERATIONS phase, UI/UX Refinements stage. Light-mode hero legibility fix shipping to main.
+
+---
