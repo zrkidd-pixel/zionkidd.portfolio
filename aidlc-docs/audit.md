@@ -294,3 +294,11 @@ This file tracks all decisions, user inputs, and AI responses throughout the AI-
 **Context**: OPERATIONS phase, UI/UX Refinements stage, small content tweak — implemented and verified.
 
 ---
+
+## Pushed Projects Rename to Main
+**Timestamp**: 2026-09-08T11:10:00Z
+**User Input**: "Yes" (confirming push to main)
+**AI Response**: Clean fast-forward, pushed directly to main. `Deploy to GitHub Pages` run #9 started on the new commit (a03952b).
+**Context**: OPERATIONS phase, UI/UX Refinements stage. Projects rename shipping to main.
+
+---
