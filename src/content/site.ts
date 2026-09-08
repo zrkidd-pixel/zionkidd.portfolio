@@ -9,7 +9,11 @@ export const site = {
 
   // TODO: revisit after MVP
   title: 'Product builder — placeholder title, update after MVP',
-  // TODO: revisit after MVP
+  // States what this site IS (hero copy) — distinct from `bio`, which is
+  // the About section's personal blurb, so the two don't repeat each other.
+  siteIntro:
+    'This site is where I show my work properly — two shipped products below, each with the real problem, the tradeoffs, and the thinking behind it.',
+  // TODO: revisit after MVP — the About section's personal bio
   bio: 'Short bio coming soon. In the meantime: two shipped products are below, with the real thinking behind each one.',
   // TODO: revisit after MVP
   contactEmail: '',

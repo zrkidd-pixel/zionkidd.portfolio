@@ -302,3 +302,11 @@ This file tracks all decisions, user inputs, and AI responses throughout the AI-
 **Context**: OPERATIONS phase, UI/UX Refinements stage. Projects rename shipping to main.
 
 ---
+
+## Hero Copy Rewrite: Site-Purpose Statement, Split From About Bio
+**Timestamp**: 2026-09-08T11:15:00Z
+**User Input**: "Let's rewrite this: Short bio coming soon. In the meantime: two shipped products are below, with the real thinking behind each one. I believe the purpose should be to state what this site is, more than an about me bc we have an about me section as well."
+**AI Response**: Identified the actual issue: the hero paragraph and the About section were both rendering the same `site.bio` field verbatim — genuinely redundant, exactly as the user diagnosed. Split it into two fields in `site.ts`: new `siteIntro` (states what the site is, used by the hero) and kept `bio` unchanged as the About section's personal blurb (still a placeholder, untouched — user didn't ask to rewrite that one). Wrote new hero copy: "This site is where I show my work properly — two shipped products below, each with the real problem, the tradeoffs, and the thinking behind it." Updated `Home.tsx` hero paragraph to read `site.siteIntro` instead of `site.bio`. Re-ran lint/test/build — all green.
+**Context**: OPERATIONS phase, UI/UX Refinements stage, copy fix — implemented and verified.
+
+---

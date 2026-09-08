@@ -186,7 +186,7 @@ export function Home() {
               ref={copyReveal.ref}
               className={`hero__copy-col${copyReveal.revealed ? ' hero__copy-col--revealed' : ''}`}
             >
-              <p className="hero__bio">{site.bio}</p>
+              <p className="hero__bio">{site.siteIntro}</p>
               <a
                 href={site.contactEmail ? `mailto:${site.contactEmail}` : '#contact'}
                 className={`hero__cta${copyReveal.revealed ? ' hero__cta--revealed' : ''}`}
