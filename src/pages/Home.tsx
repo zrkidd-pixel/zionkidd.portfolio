@@ -8,7 +8,7 @@ import '../styles/home.css'
 
 const HERO_SLIDES = [
   { slug: caseStudies[0].slug, label: caseStudies[0].name, video: `${import.meta.env.BASE_URL}videos/vine-to-wine.mp4` },
-  { slug: caseStudies[1].slug, label: caseStudies[1].name, video: undefined as string | undefined },
+  { slug: caseStudies[1].slug, label: caseStudies[1].name, video: `${import.meta.env.BASE_URL}videos/my-fitness-app.mp4` },
   { slug: comingSoonProject.slug, label: comingSoonProject.name, video: undefined as string | undefined },
 ]
 

@@ -222,3 +222,11 @@ This file tracks all decisions, user inputs, and AI responses throughout the AI-
 **Context**: OPERATIONS phase, UI/UX Refinements stage. Main now carries the vineyard-video hero update; deploy in progress.
 
 ---
+
+## Hero Video — My Fitness App Slide Wired In
+**Timestamp**: 2026-09-08T10:20:00Z
+**User Input**: "Ok now find a video for my other project" → then uploaded a video file (Pexels "man lifting weights in a fitness gym" clip from the shared shortlist).
+**AI Response**: Searched for and shared a curated shortlist (Pexels weight-lifting-gym clip, plus Pexels/Pixabay weightlifting/barbell/gym searches) — same pattern as the vineyard video, since this session still can't fetch external media directly (egress policy). User downloaded and sent the file. Verified with `ffprobe`: valid H.264 Baseline, 1280x720 (despite "uhd_3840_2160" in the filename — likely the actual downloaded tier was lower-res; file itself is valid regardless), 8.04s, no audio, probe_score 100, 2.4MB. Placed at `public/videos/my-fitness-app.mp4`, wired into the second `HERO_SLIDES` entry the same way as the first. Re-ran lint/test/build — all green.
+**Context**: OPERATIONS phase, UI/UX Refinements stage, hero video-placeholder sub-task — 2 of 3 slides now have real footage; only Next Project (Wine Society Rebrand teaser) remains a placeholder.
+
+---

@@ -52,7 +52,7 @@
 
 ### 🟡 OPERATIONS PHASE
 - [x] UI/UX Refinements — Hero sub-cycle: approved, merged (PR #6), deployed live
-- [~] UI/UX Refinements — Hero video placeholders sub-task: IN PROGRESS (1 of 3 slides has real footage; Fitness App and Next Project slides still placeholder gradients)
+- [~] UI/UX Refinements — Hero video placeholders sub-task: IN PROGRESS (2 of 3 slides have real footage; only Next Project/Wine Society Rebrand teaser still a placeholder gradient)
 - [ ] Screen Content Refinements (if applicable)
 
 ## Current Status
