@@ -134,3 +134,27 @@ This file tracks all decisions, user inputs, and AI responses throughout the AI-
 **Context**: Transition from Build and Test / CONSTRUCTION phase to OPERATIONS phase (pending user direction).
 
 ---
+
+## UI/UX Refinements — Kickoff
+**Timestamp**: 2026-09-08T07:15:00Z
+**User Input**: "Using the ai-dlc operations page we are going to revamp the ui/ux. Going design by design decision let's update the below so that it better fits me, then we will build a mockup, then code it and ship. Understand? --- ## Prompt to Recreate This Hero Section [full text spec pasted: a black-background, full-screen video-hero design for a creative portfolio — Navbar + Hero components, React/Vite/Tailwind/Figtree, three crossfading CloudFront video backgrounds, numbered nav (Works/Services/About/Contact), email + live 24h clock, video-switcher buttons (WATER WAVE/GRIDWAVE/LIGHT TUNNEL) + pulsing 'Available for work' dot, giant name treatment ('Viktor.') with pink #F598F2 accent period, bio paragraph + 'start a project' CTA with fill-up hover, responsive tablet/mobile behavior, revealUp/revealRight animations via IntersectionObserver, reduced-motion support]
+**AI Response**: Entering OPERATIONS > UI/UX Refinements stage. Reviewed current site (Header.tsx, Home.tsx, tokens.css, site.ts, package.json) to establish baseline: current design direction is "editorial agency-poster" — warm cream/parchment light theme (dark mode toggle available), maroon accent #7a1f2b, Archivo/Fraunces/Inter fonts, plain CSS custom-property token system (no Tailwind), React Router multi-page site (Home/CaseStudy/BlogList/BlogPost), content for name/bio/contact still placeholder pending real copy. The pasted reference is a fundamentally different aesthetic (full-black video-hero, freelance-creative-agency tone) built on a different stack (Tailwind, Figtree). Rather than treating this as a screenshot-based reference walkthrough, treating the pasted spec as the design reference and extracting it into individual decisions to confirm one at a time (per aidlc-docs/preferences.md question-flow preference), starting with overall direction/fit before typography, color, content, and component-level choices. Creating ui-ux-refinements-plan.md and proceeding to Step 5 (decision questions), asking one at a time.
+**Context**: OPERATIONS phase, UI/UX Refinements stage, Step 1-2 (analyze current state, create plan) and start of Step 5 (design decision questions).
+
+---
+
+## UI/UX Refinements — Design Decisions (Steps 5-7)
+**Timestamp**: 2026-09-08T07:45:00Z
+**User Input**: Answered 11 one-at-a-time design decision questions via AskUserQuestion (full question/answer/implication text for each recorded verbatim in `aidlc-docs/operations/ui-ux-refinements/reference-analysis.md`, Decisions 1-11).
+**AI Response**: All 11 decisions locked with no remaining ambiguity: (1) full site-wide dark/bold switch, (2) video hero kept pending user-supplied footage, (3) gold/amber accent replacing maroon, (4) Figtree replacing Archivo/Fraunces/Inter everywhere, (5) "ZION." giant name treatment with accent period, (6) nav = Work/Blog/About/Contact, (7) availability dot kept and relabeled "Open to opportunities", live clock kept, (8) clock = NYC/America New York, (9) video switcher repurposed as case-study preview (Vine to Wine/Fitness App/next project) with hover-preview + click-to-navigate interaction, (10) CTA "let's talk" → contact, (11) About = scroll-to section on Home, (12) theme toggle kept with light theme restyled to gold accent, dark becomes default. Proceeding to Step 8 (design-system.md) and Step 9 (HTML mockup).
+**Context**: OPERATIONS phase, UI/UX Refinements stage, Steps 5-7 complete (no vague/ambiguous answers requiring follow-up beyond the two already resolved inline — accent color pick and clock city).
+
+---
+
+## UI/UX Refinements — Design System + Mockup (Steps 8-9)
+**Timestamp**: 2026-09-08T08:05:00Z
+**User Input**: (none — proceeding per approved decision-by-decision plan and "then we will build a mockup" from the kickoff request)
+**AI Response**: Created `aidlc-docs/operations/ui-ux-refinements/design-system.md` (color palette for dark-default + restyled light escape hatch, Figtree type scale desktop/tablet/mobile, spacing/radius/motion tokens, component specs) directly from the 11 locked decisions. Built the hero mockup at `aidlc-docs/operations/ui-ux-refinements/mockups/hero-mockup.html` (self-contained, plain HTML/CSS/JS matching the target stack — no Tailwind) implementing: video-placeholder crossfade (3 animated gradient panels standing in for real footage), numbered nav (Work/Blog/About/Contact), live NYC clock, "Open to opportunities" pulsing dot, case-study video switcher (Vine to Wine/Fitness App/Next Project) with hover-preview + click-to-navigate interaction, giant "ZION." name with gold accent period and reveal-up animation, bio + "let's talk" CTA with fill-up hover, tablet/mobile responsive breakpoints with hamburger menu, and prefers-reduced-motion support. Also published the same mockup as a Claude Artifact (https://claude.ai/code/artifact/16bddb98-2041-492b-a247-551b59c2471f) for in-conversation preview alongside the local file. Presenting for review per Step 9 — awaiting approval before Step 10 (implementation plan).
+**Context**: OPERATIONS phase, UI/UX Refinements stage, Steps 8-9 (design system + mandatory HTML mockup), awaiting Step 9 approval gate.
+
+---

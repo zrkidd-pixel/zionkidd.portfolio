@@ -51,11 +51,11 @@
 - [x] Build and Test — EXECUTE (complete, awaiting user approval)
 
 ### 🟡 OPERATIONS PHASE
-- [ ] UI/UX Refinements (if applicable)
+- [~] UI/UX Refinements — IN PROGRESS (hero section revamp, decision-by-decision)
 - [ ] Screen Content Refinements (if applicable)
 
 ## Current Status
 - **Lifecycle Phase**: OPERATIONS
-- **Current Stage**: CONSTRUCTION complete and approved. Awaiting user direction on Operations (UI/UX Refinements)
-- **Next Stage**: UI/UX Refinements (conditional — trigger when user supplies real bio/photo/resume or design feedback), or Deployment (one manual GitHub Settings step remains — see README.md)
-- **Status**: MVP complete and pushed
+- **Current Stage**: UI/UX Refinements — hero section revamp, working through design decisions one at a time before building mockup (see `aidlc-docs/operations/plans/ui-ux-refinements-plan.md`)
+- **Next Stage**: Mockup → approval → implementation → commit/push
+- **Status**: In progress
