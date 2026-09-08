@@ -238,3 +238,11 @@ This file tracks all decisions, user inputs, and AI responses throughout the AI-
 **Context**: OPERATIONS phase, UI/UX Refinements stage. Main and the feature branch are in sync; both hero video slides sourced so far are live.
 
 ---
+
+## Hero Video — Wine Society Rebrand (Third/Last) Slide Wired In
+**Timestamp**: 2026-09-08T10:35:00Z
+**User Input**: Asked for the third slide's theme ("Last one should be nyc nightlife elegance"), then refined ("Think dinner party with wine"), then uploaded a video file (Pexels "group tossing wine glasses" toast clip).
+**AI Response**: Shared shortlists for both directions (NYC skyline/nightlife, then elegant dinner-party/wine-toast). User picked the wine-toast direction. Verified upload with `ffprobe`: valid H.264 Baseline 1280x720, 10s, no audio, probe_score 100. Placed at `public/videos/wine-society-rebrand.mp4`, wired into the third `HERO_SLIDES` entry. All three hero slides now have real footage, so also cleaned up `home.css`: replaced the three slug-specific placeholder gradient rules (`[data-slide='vine-to-wine']` etc. — now dead code with no video-less slide left to style) with one generic `.hero__video-layer:not(.hero__video-layer--real)` fallback gradient, so any future project added without footage yet still gets a sensible placeholder automatically. Re-ran lint/test/build — all green.
+**Context**: OPERATIONS phase, UI/UX Refinements stage, hero video-placeholder sub-task — COMPLETE. All 3 hero slides have real footage.
+
+---

@@ -33,16 +33,8 @@
   animation: none;
 }
 
-.hero__video-layer[data-slide='vine-to-wine'] {
-  background-image: radial-gradient(circle at 30% 30%, color-mix(in srgb, var(--color-accent) 22%, var(--color-bg)), var(--color-bg) 65%);
-}
-
-.hero__video-layer[data-slide='my-fitness-app'] {
-  background-image: radial-gradient(circle at 70% 40%, color-mix(in srgb, var(--color-accent) 16%, var(--color-bg)), var(--color-bg) 65%);
-}
-
-.hero__video-layer[data-slide='wine-society-rebrand'] {
-  background-image: radial-gradient(circle at 50% 70%, color-mix(in srgb, var(--color-accent) 12%, var(--color-bg)), var(--color-bg) 65%);
+.hero__video-layer:not(.hero__video-layer--real) {
+  background-image: radial-gradient(circle at 40% 35%, color-mix(in srgb, var(--color-accent) 18%, var(--color-bg)), var(--color-bg) 65%);
 }
 
 @keyframes hero-drift {
