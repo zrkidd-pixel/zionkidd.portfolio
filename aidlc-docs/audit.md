@@ -246,3 +246,11 @@ This file tracks all decisions, user inputs, and AI responses throughout the AI-
 **Context**: OPERATIONS phase, UI/UX Refinements stage, hero video-placeholder sub-task — COMPLETE. All 3 hero slides have real footage.
 
 ---
+
+## Pushed Wine Society Rebrand Slide to Main
+**Timestamp**: 2026-09-08T10:40:00Z
+**User Input**: "Yes" (confirming push to main)
+**AI Response**: Clean fast-forward, pushed directly to main. `Deploy to GitHub Pages` run #6 completed successfully. All 3 hero video slides are now live at https://zrkidd-pixel.github.io/zionkidd.portfolio/.
+**Context**: OPERATIONS phase, UI/UX Refinements stage. Hero video-placeholder sub-task fully closed: sourced, wired, verified, shipped. Awaiting user direction on the next section.
+
+---
