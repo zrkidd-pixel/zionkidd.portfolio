@@ -326,3 +326,11 @@ This file tracks all decisions, user inputs, and AI responses throughout the AI-
 **Context**: OPERATIONS phase, UI/UX Refinements stage. Welcome-message hero copy shipping to main.
 
 ---
+
+## Section 3: Contact — Decisions + Mockup (Steps 5-9)
+**Timestamp**: 2026-09-08T11:40:00Z
+**User Input**: Chose "Contact" as the next section. Answered decision questions: wants real contact ability without publishing personal email raw ("what options do I have?"), chose a third-party contact form (Web3Forms over Formspree, no account signup needed), chose to include social links in Contact too (not footer-only), chose to build with a placeholder access key now rather than wait to get the real one. Then: "Show me a mockup before coding anything."
+**AI Response**: Explained email-privacy options (form service / LinkedIn-as-primary / forwarding alias / obfuscated mailto); user picked the form service. Recommended Web3Forms over Formspree (no account required, free tier). Per explicit request, stopped before writing any implementation code and built a static HTML mockup instead: `aidlc-docs/operations/ui-ux-refinements/mockups/contact-section-mockup.html`, covering all 5 states (default form, sending, success, error, and the "not configured yet" fallback with social links only — what ships first, before a real Web3Forms key exists). Published the same mockup as a Claude Artifact (https://claude.ai/code/artifact/871aca05-8fdf-47c9-9770-ac240a94876c) for in-conversation review. Awaiting approval before any code changes (site.ts fields, ContactForm component, CSS, hero CTA update to point at #contact instead of mailto).
+**Context**: OPERATIONS phase, UI/UX Refinements stage, Contact section — mockup presented, no code touched yet per explicit user instruction.
+
+---

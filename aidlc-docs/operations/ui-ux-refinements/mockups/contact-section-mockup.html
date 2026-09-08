@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact Section — Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #050505;
+    --surface: #121212;
+    --border: #2a2a2a;
+    --text: #f5f5f0;
+    --text-secondary: #b5b3ad;
+    --text-faint: #78766f;
+    --accent: #E3A857;
+    --accent-hover: #EDBB74;
+    --accent-ink: #111111;
+    --error: #e08585;
+    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Figtree', system-ui, sans-serif;
+    padding: 64px 24px 100px;
+  }
+  .page-title {
+    max-width: 900px;
+    margin: 0 auto 48px;
+    font-size: 13px;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .panel {
+    max-width: 900px;
+    margin: 0 auto 64px;
+  }
+  .panel__label {
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .section {
+    padding: 48px 0;
+    border-top: 1px solid var(--border);
+  }
+  .section__heading {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .section__index {
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+  .section__title {
+    font-size: 40px;
+    font-weight: 600;
+    margin: 0;
+  }
+  .section__body {
+    max-width: 60ch;
+    color: var(--text-secondary);
+    font-size: 18px;
+    margin: 0 0 32px;
+  }
+
+  /* ---- Form ---- */
+  .contact-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 24px;
+    max-width: 640px;
+  }
+  .contact-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .contact-form__field--full {
+    grid-column: 1 / -1;
+  }
+  .contact-form__field label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-faint);
+  }
+  .contact-form__field input,
+  .contact-form__field textarea {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 15px;
+    resize: vertical;
+    transition: border-color 200ms ease;
+  }
+  .contact-form__field input:focus,
+  .contact-form__field textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  .contact-form__actions {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 4px;
+  }
+  .btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 999px;
+    padding: 13px 28px;
+    font-size: 13px;
+    text-transform: lowercase;
+    cursor: pointer;
+    font-family: inherit;
+    border: 1px solid var(--text);
+    background: transparent;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .btn--accent {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-ink);
+    font-weight: 600;
+  }
+  .btn--accent:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+  .btn--ghost:hover { border-color: var(--accent); color: var(--accent); }
+  .btn[disabled] { opacity: 0.55; cursor: default; }
+
+  .contact-form__error {
+    color: var(--error);
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .contact-form__success {
+    max-width: 640px;
+    padding: 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    font-size: 17px;
+    color: var(--text);
+  }
+  .contact-form__success strong { color: var(--accent); }
+
+  .contact__cta-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+  }
+
+  .honeypot-note {
+    font-size: 11px;
+    color: var(--text-faint);
+    margin-top: 8px;
+    grid-column: 1 / -1;
+  }
+
+  @media (max-width: 640px) {
+    .contact-form { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<p class="page-title">Contact section — states to review (nothing here is live code, this is a static preview)</p>
+
+<!-- STATE 1: Default / ready to submit -->
+<div class="panel">
+  <p class="panel__label">State 1 — Default (Web3Forms configured)</p>
+  <section class="section" aria-label="Contact">
+    <div class="section__heading">
+      <span class="section__index">04</span>
+      <h2 class="section__title">Contact</h2>
+    </div>
+    <p class="section__body">
+      Send a message below, or find me on LinkedIn / GitHub if you'd rather do that.
+    </p>
+    <form class="contact-form">
+      <div class="contact-form__field">
+        <label for="name-1">Name</label>
+        <input id="name-1" type="text" placeholder="Your name" />
+      </div>
+      <div class="contact-form__field">
+        <label for="email-1">Email</label>
+        <input id="email-1" type="email" placeholder="you@example.com" />
+      </div>
+      <div class="contact-form__field contact-form__field--full">
+        <label for="message-1">Message</label>
+        <textarea id="message-1" rows="4" placeholder="What's up?"></textarea>
+      </div>
+      <div class="contact-form__actions">
+        <button type="button" class="btn btn--accent">send message</button>
+      </div>
+    </form>
+    <div class="contact__cta-row">
+      <a href="#" class="btn btn--ghost">linkedin</a>
+      <a href="#" class="btn btn--ghost">github</a>
+      <a href="#" class="btn btn--ghost">download resume</a>
+    </div>
+  </section>
+</div>
+
+<!-- STATE 2: Sending -->
+<div class="panel">
+  <p class="panel__label">State 2 — Sending (button disabled, "sending…")</p>
+  <section class="section" aria-label="Contact">
+    <div class="section__heading">
+      <span class="section__index">04</span>
+      <h2 class="section__title">Contact</h2>
+    </div>
+    <p class="section__body">
+      Send a message below, or find me on LinkedIn / GitHub if you'd rather do that.
+    </p>
+    <form class="contact-form">
+      <div class="contact-form__field">
+        <label for="name-2">Name</label>
+        <input id="name-2" type="text" value="Jamie Rivera" disabled />
+      </div>
+      <div class="contact-form__field">
+        <label for="email-2">Email</label>
+        <input id="email-2" type="email" value="jamie@example.com" disabled />
+      </div>
+      <div class="contact-form__field contact-form__field--full">
+        <label for="message-2">Message</label>
+        <textarea id="message-2" rows="4" disabled>Loved the Vine to Wine case study, would love to chat.</textarea>
+      </div>
+      <div class="contact-form__actions">
+        <button type="button" class="btn btn--accent" disabled>sending…</button>
+      </div>
+    </form>
+  </section>
+</div>
+
+<!-- STATE 3: Success -->
+<div class="panel">
+  <p class="panel__label">State 3 — Success (form replaced by confirmation)</p>
+  <section class="section" aria-label="Contact">
+    <div class="section__heading">
+      <span class="section__index">04</span>
+      <h2 class="section__title">Contact</h2>
+    </div>
+    <div class="contact-form__success">
+      <strong>Thanks, got it.</strong><br />
+      I'll get back to you soon.
+    </div>
+    <div class="contact__cta-row">
+      <a href="#" class="btn btn--ghost">linkedin</a>
+      <a href="#" class="btn btn--ghost">github</a>
+      <a href="#" class="btn btn--ghost">download resume</a>
+    </div>
+  </section>
+</div>
+
+<!-- STATE 4: Error -->
+<div class="panel">
+  <p class="panel__label">State 4 — Error (form stays, inline error, retry-able)</p>
+  <section class="section" aria-label="Contact">
+    <div class="section__heading">
+      <span class="section__index">04</span>
+      <h2 class="section__title">Contact</h2>
+    </div>
+    <p class="section__body">
+      Send a message below, or find me on LinkedIn / GitHub if you'd rather do that.
+    </p>
+    <form class="contact-form">
+      <div class="contact-form__field">
+        <label for="name-4">Name</label>
+        <input id="name-4" type="text" value="Jamie Rivera" />
+      </div>
+      <div class="contact-form__field">
+        <label for="email-4">Email</label>
+        <input id="email-4" type="email" value="jamie@example.com" />
+      </div>
+      <div class="contact-form__field contact-form__field--full">
+        <label for="message-4">Message</label>
+        <textarea id="message-4" rows="4">Loved the Vine to Wine case study, would love to chat.</textarea>
+      </div>
+      <div class="contact-form__actions">
+        <button type="button" class="btn btn--accent">send message</button>
+        <p class="contact-form__error">Something went wrong. Try again, or reach out on LinkedIn/GitHub below.</p>
+      </div>
+    </form>
+    <div class="contact__cta-row">
+      <a href="#" class="btn btn--ghost">linkedin</a>
+      <a href="#" class="btn btn--ghost">github</a>
+      <a href="#" class="btn btn--ghost">download resume</a>
+    </div>
+  </section>
+</div>
+
+<!-- STATE 5: Not configured yet (fallback, before Web3Forms key is added) -->
+<div class="panel">
+  <p class="panel__label">State 5 — Not configured yet (before you add the Web3Forms key — this is what ships first)</p>
+  <section class="section" aria-label="Contact">
+    <div class="section__heading">
+      <span class="section__index">04</span>
+      <h2 class="section__title">Contact</h2>
+    </div>
+    <p class="section__body">
+      Contact form coming soon. In the meantime, find me here:
+    </p>
+    <div class="contact__cta-row">
+      <a href="#" class="btn btn--ghost">linkedin</a>
+      <a href="#" class="btn btn--ghost">github</a>
+      <a href="#" class="btn btn--ghost">download resume</a>
+    </div>
+  </section>
+</div>
+
+</body>
+</html>
