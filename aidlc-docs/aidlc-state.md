@@ -27,6 +27,10 @@
 | Resiliency Baseline | No | Requirements Analysis |
 | Property-Based Testing | No | Requirements Analysis |
 
+## Execution Plan Summary
+- **Total Stages Executing**: Workspace Detection, Requirements Analysis, User Stories, Workflow Planning, Code Generation, Build and Test
+- **Stages Skipped**: Application Design, Units Generation, Functional Design, NFR Requirements, NFR Design, Infrastructure Design (see `aidlc-docs/inception/plans/execution-plan.md` for rationale)
+
 ## Stage Progress
 
 ### 🔵 INCEPTION PHASE
@@ -34,14 +38,17 @@
 - [ ] Reverse Engineering (if applicable) — N/A (greenfield)
 - [x] Requirements Analysis
 - [x] User Stories (if applicable)
-- [ ] Workflow Planning
-- [ ] Application Design (if applicable)
-- [ ] Units Generation (if applicable)
+- [x] Workflow Planning
+- [ ] Application Design — SKIP
+- [ ] Units Generation — SKIP
 
 ### 🟢 CONSTRUCTION PHASE
-- [ ] Per-Unit Design Stages (if applicable)
-- [ ] Code Generation
-- [ ] Build and Test
+- [ ] Functional Design — SKIP
+- [ ] NFR Requirements — SKIP
+- [ ] NFR Design — SKIP
+- [ ] Infrastructure Design — SKIP
+- [ ] Code Generation — EXECUTE
+- [ ] Build and Test — EXECUTE
 
 ### 🟡 OPERATIONS PHASE
 - [ ] UI/UX Refinements (if applicable)
@@ -49,6 +56,6 @@
 
 ## Current Status
 - **Lifecycle Phase**: INCEPTION
-- **Current Stage**: User Stories complete — awaiting user approval
-- **Next Stage**: Workflow Planning
+- **Current Stage**: Workflow Planning Complete — awaiting user approval
+- **Next Stage**: Code Generation
 - **Status**: Ready for review
