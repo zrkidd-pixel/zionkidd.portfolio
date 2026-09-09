@@ -390,3 +390,11 @@ This file tracks all decisions, user inputs, and AI responses throughout the AI-
 **Context**: OPERATIONS phase, UI/UX Refinements stage. Light-mode hero legibility fix shipping to main.
 
 ---
+
+## Contact Copy Tweak — Pushed to Main
+**Timestamp**: 2026-09-09T13:25:00Z
+**User Input**: "change the last bit of this to be 'if you'd like to connect.'" then "yes" (confirming push to main)
+**AI Response**: Updated the Contact intro line's ending from "if you'd rather do that." to "if you'd like to connect." in `Home.tsx`. Re-ran lint/test/build — all green. Pushed to branch, fast-forwarded to main; `Deploy to GitHub Pages` run #16 started.
+**Context**: OPERATIONS phase, UI/UX Refinements stage, copy tweak — implemented and shipped.
+
+---
