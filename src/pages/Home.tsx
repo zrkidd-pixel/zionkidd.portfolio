@@ -242,7 +242,7 @@ export function Home() {
           </div>
           <p className="section__body">
             {hasContactForm()
-              ? 'Send a message below, or find me on LinkedIn / GitHub if you’d rather do that.'
+              ? 'Send a message below, or find me on LinkedIn / GitHub if you’d like to connect.'
               : 'Contact form coming soon. In the meantime, find me here:'}
           </p>
           {hasContactForm() ? <ContactForm /> : null}
